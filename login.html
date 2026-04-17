@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Silent Disco</title>
+    <link rel="icon" type="image/png" href="img/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="auth-topbar">
+        <div class="container auth-topbar-inner">
+            <a href="index.html" class="logo-link">
+                <img src="img/logo.png" alt="Silent Beats logo" class="site-logo">
+            </a>
+        </div>
+    </div>
+
+    <main>
+        <section class="auth-section">
+            <div class="container auth-shell">
+                <div class="auth-benefits">
+                    <span class="eyebrow">WELCOME BACK</span>
+                    <h1>Login to manage your bookings and event requests</h1>
+                    <p>Check your enquiry progress, revisit package details and stay connected with your event planning updates.</p>
+
+                    <div class="hero-stats">
+                        <div class="hero-stat">
+                            <strong>Fast Access</strong>
+                            <span>Open your booking details anytime</span>
+                        </div>
+                        <div class="hero-stat">
+                            <strong>Easy Support</strong>
+                            <span>Reach our team for quick updates</span>
+                        </div>
+                        <div class="hero-stat">
+                            <strong>Saved History</strong>
+                            <span>Keep track of your event enquiries</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="auth-form-card">
+                    <div class="section-heading left-align compact-heading">
+                        <span class="eyebrow">LOGIN</span>
+                        <h2>Access your account</h2>
+                        <p class="section-copy">Use your email and password to continue.</p>
+                    </div>
+
+                    <form class="site-form">
+                        <label class="input-field">
+                            <span>Email Address</span>
+                            <input type="email" placeholder="you@example.com">
+                        </label>
+
+                        <label class="input-field">
+                            <span>Password</span>
+                            <div class="password-field">
+                                <input type="password" placeholder="Enter your password" id="loginPassword">
+                                <button type="button" class="password-toggle" aria-label="Show password" data-password-toggle>
+                                    <i class="fa-regular fa-eye"></i>
+                                </button>
+                            </div>
+                        </label>
+
+                        <div class="checkbox-row">
+                            <label><input type="checkbox"> Remember me</label>
+                            <a href="#">Forgot password?</a>
+                        </div>
+
+                        <button type="submit" class="btn auth-btn">Login</button>
+                    </form>
+
+                    <p class="helper-links">Don't have an account? <a href="register.html">Create one here</a></p>
+
+                    <div class="auth-divider">
+                        <span>or continue with</span>
+                    </div>
+
+                    <div class="auth-socials">
+                        <a href="#" class="auth-social-btn" aria-label="Login with Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" class="auth-social-btn" aria-label="Login with Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="auth-social-btn" aria-label="Login with YouTube"><i class="fa-brands fa-youtube"></i></a>
+                        <a href="#" class="auth-social-btn" aria-label="Login with Apple"><i class="fa-brands fa-apple"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

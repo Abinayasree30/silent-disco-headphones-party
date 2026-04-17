@@ -1,0 +1,246 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking | Silent Disco</title>
+    <link rel="icon" type="image/png" href="img/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="booking-page-body">
+    <header class="site-header">
+        <div class="container header-wrap">
+            <div class="logo-box">
+                <a href="index.html" class="logo-link">
+                    <img src="img/logo.png" alt="Silent Beats logo" class="site-logo">
+                </a>
+            </div>
+
+            <nav class="main-nav">
+                <div class="nav-item has-dropdown">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <div class="dropdown-menu">
+                        <a href="index.html">Home 1</a>
+                        <a href="home 2.html">Home 2</a>
+                    </div>
+                </div>
+                <a href="about.html">About Us</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="packages.html">Packages</a>
+                <a href="blog.html">Blog</a>
+                <a href="booking.html">Booking</a>
+                <a href="contact.html">Contact</a>
+                <a href="login.html" class="nav-btn">Login</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="inner-page-hero simple-hero-section">
+            <div class="container inner-page-shell simple-hero-shell">
+                <h1>Booking</h1>
+                <p>Reserve the perfect silent disco package for your next event.</p>
+            </div>
+        </section>
+
+        <section class="booking-page">
+            <div class="container booking-shell">
+                <div class="booking-form-card">
+                    <div class="section-heading left-align compact-heading">
+                        <span class="eyebrow">EVENT BOOKING</span>
+                        <h2>Tell us what you need</h2>
+                        <p class="section-copy">From weddings to private parties and corporate nights, we will match the setup to your crowd and venue.</p>
+                    </div>
+
+                    <div class="booking-quick-picks">
+                        <button type="button" class="booking-pick" data-booking-pick="Basic">
+                            <strong>Basic</strong>
+                            <span>Small private party setup</span>
+                        </button>
+                        <button type="button" class="booking-pick is-active" data-booking-pick="Standard">
+                            <strong>Standard</strong>
+                            <span>Most popular celebration package</span>
+                        </button>
+                        <button type="button" class="booking-pick" data-booking-pick="Premium">
+                            <strong>Premium</strong>
+                            <span>Large-scale event atmosphere</span>
+                        </button>
+                        <button type="button" class="booking-pick" data-booking-pick="Wedding">
+                            <strong>Wedding</strong>
+                            <span>After-party and reception vibe</span>
+                        </button>
+                    </div>
+
+                    <form class="site-form" data-booking-form>
+                        <div class="input-grid">
+                            <label class="input-field">
+                                <span>Your Name</span>
+                                <input id="bookingName" type="text" placeholder="Enter your full name" required>
+                            </label>
+                            <label class="input-field">
+                                <span>Phone Number</span>
+                                <input type="tel" placeholder="+91 98765 43210" required>
+                            </label>
+                        </div>
+
+                        <div class="input-grid">
+                            <label class="input-field">
+                                <span>Email Address</span>
+                                <input type="email" placeholder="you@example.com" required>
+                            </label>
+                            <label class="input-field">
+                                <span>Package</span>
+                                <select id="bookingPackage" required>
+                                    <option>Basic</option>
+                                    <option selected>Standard</option>
+                                    <option>Premium</option>
+                                    <option>Wedding</option>
+                                    <option>Corporate</option>
+                                </select>
+                            </label>
+                        </div>
+
+                        <div class="input-grid">
+                            <label class="input-field">
+                                <span>Event Date</span>
+                                <input id="bookingDate" type="date" required>
+                            </label>
+                            <label class="input-field">
+                                <span>Guests</span>
+                                <input id="bookingGuests" type="number" min="20" value="50" required>
+                            </label>
+                        </div>
+
+                        <div class="input-grid">
+                            <label class="input-field">
+                                <span>Event Type</span>
+                                <select required>
+                                    <option>Private Party</option>
+                                    <option>Wedding</option>
+                                    <option>College Event</option>
+                                    <option>Corporate Event</option>
+                                    <option>Birthday Celebration</option>
+                                </select>
+                            </label>
+                            <label class="input-field">
+                                <span>City</span>
+                                <input type="text" placeholder="Chennai" required>
+                            </label>
+                        </div>
+
+                        <label class="input-field">
+                            <span>Event Notes</span>
+                            <textarea placeholder="Share venue details, preferred music channels, timing and any support needed."></textarea>
+                        </label>
+
+                        <button type="submit" class="btn">Send Booking Request</button>
+                        <p class="booking-status" data-booking-status>Submit your event details and our team will contact you shortly.</p>
+                    </form>
+                </div>
+
+                <aside class="booking-sidebar">
+                    <div class="booking-summary-card">
+                        <div class="section-heading left-align compact-heading">
+                            <span class="eyebrow">LIVE SUMMARY</span>
+                            <h2>Package overview</h2>
+                        </div>
+
+                        <div class="booking-summary-list">
+                            <div class="booking-summary-row">
+                                <strong data-booking-package>Standard</strong>
+                                <span>Selected package</span>
+                            </div>
+                            <div class="booking-summary-row">
+                                <strong data-booking-guests>50 Guests</strong>
+                                <span>Expected crowd size</span>
+                            </div>
+                            <div class="booking-summary-row">
+                                <strong data-booking-total>Rs 14,999</strong>
+                                <span>Estimated starting price</span>
+                            </div>
+                        </div>
+
+                        <p class="booking-note">Final price can change based on event location, support team size and custom headset count.</p>
+                    </div>
+
+                    <div class="booking-benefit-card">
+                        <div class="section-heading left-align compact-heading">
+                            <span class="eyebrow">WHAT YOU GET</span>
+                            <h2>Included with every booking</h2>
+                        </div>
+
+                        <div class="booking-benefits">
+                            <div>
+                                <strong>Wireless headset setup</strong>
+                                <span>Comfortable, premium audio headsets ready for event use.</span>
+                            </div>
+                            <div>
+                                <strong>Multi-channel party experience</strong>
+                                <span>Give guests the freedom to switch music and stay engaged.</span>
+                            </div>
+                            <div>
+                                <strong>Support from our team</strong>
+                                <span>We help with coordination, setup and event flow planning.</span>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-grid">
+            <div>
+                <a href="index.html" class="footer-logo-link">
+                    <img src="img/logo.png" alt="Silent Beats logo" class="footer-logo">
+                </a>
+                <h2>Silent Disco</h2>
+                <p>Premium wireless headset party rental company for unforgettable events, private parties, college shows and corporate celebrations.</p>
+                <div class="footer-socials">
+                    <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="#" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                </div>
+            </div>
+
+            <div>
+                <h3>Quick Links</h3>
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="packages.html">Packages</a>
+                <a href="booking.html">Booking</a>
+            </div>
+
+            <div>
+                <h3>Services</h3>
+                <a href="packages.html">Silent Disco Rentals</a>
+                <a href="packages.html">Headset Packages</a>
+                <a href="booking.html">Event Booking</a>
+                <a href="contact.html">Custom Party Support</a>
+            </div>
+
+            <div>
+                <h3>Contact</h3>
+                <p>Phone: +91 98765 43210</p>
+                <p>Email: info@silentdisco.com</p>
+                <p>Location: Chennai, India</p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>copyright &copy; 2026 Silent Disco. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
+
+
