@@ -193,6 +193,79 @@ const initScrollTopButton = () => {
     toggleVisibility();
 };
 
+const initRevealAnimations = () => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        document.body.classList.add("motion-ready", "is-loaded");
+        document.querySelectorAll("[data-reveal]").forEach((element) => {
+            element.classList.add("is-visible");
+        });
+        return;
+    }
+
+    const revealSelectors = [
+        ".section-heading",
+        ".card",
+        ".why-item",
+        ".why-proof-card",
+        ".process-card",
+        ".testimonial-card",
+        ".preview-card",
+        ".packages-plan-card",
+        ".packages-fit-panel",
+        ".packages-note-shell",
+        ".packages-addons-grid article",
+        ".about-signature-card",
+        ".about-method-step",
+        ".about-values-panel",
+        ".about-quote-panel",
+        ".blog-insight-list article",
+        ".blog-journal-item",
+        ".blog-widget",
+        ".booking-form-card",
+        ".booking-summary-card",
+        ".booking-benefit-card",
+        ".info-card",
+        ".gallery-category-card",
+        ".gallery-only-card",
+        ".zone-card",
+        ".audience-card",
+        ".impact-card",
+        ".contact-card",
+        ".hero-stat"
+    ];
+
+    const revealElements = Array.from(document.querySelectorAll(revealSelectors.join(", ")));
+
+    revealElements.forEach((element, index) => {
+        element.setAttribute("data-reveal", "");
+        element.style.setProperty("--reveal-delay", `${Math.min(index % 6, 5) * 70}ms`);
+    });
+
+    document.body.classList.add("motion-ready");
+
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+            if (!entry.isIntersecting) {
+                return;
+            }
+
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+        });
+    }, {
+        threshold: 0.14,
+        rootMargin: "0px 0px -8% 0px"
+    });
+
+    revealElements.forEach((element) => {
+        revealObserver.observe(element);
+    });
+
+    window.requestAnimationFrame(() => {
+        document.body.classList.add("is-loaded");
+    });
+};
+
 const root = document.documentElement;
 const body = document.body;
 const storage = {
@@ -215,12 +288,18 @@ const storage = {
 const applySitePreferences = () => {
     const modeEnabled = storage.get("silentBeatsMode") === "enabled";
     const rtlEnabled = storage.get("silentBeatsRtl") === "enabled";
+    const direction = rtlEnabled ? "rtl" : "ltr";
 
     body.classList.toggle("mode-enabled", modeEnabled);
     root.classList.toggle("mode-enabled", modeEnabled);
     body.classList.toggle("is-rtl", rtlEnabled);
-    root.setAttribute("dir", rtlEnabled ? "rtl" : "ltr");
-    body.setAttribute("dir", rtlEnabled ? "rtl" : "ltr");
+    root.classList.toggle("is-rtl", rtlEnabled);
+    body.classList.toggle("is-ltr", !rtlEnabled);
+    root.classList.toggle("is-ltr", !rtlEnabled);
+    root.setAttribute("dir", direction);
+    body.setAttribute("dir", direction);
+    root.style.direction = direction;
+    body.style.direction = direction;
 };
 
 const createSiteControls = () => {
@@ -326,6 +405,7 @@ passwordToggles.forEach((toggleButton) => {
 applySitePreferences();
 initMobileNav();
 initScrollTopButton();
+initRevealAnimations();
 createSiteControls();
 syncControlStates();
 
