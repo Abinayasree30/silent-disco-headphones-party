@@ -2313,6 +2313,15 @@ body.mode-enabled .tool-chip[aria-pressed="true"] {
     background: rgba(255, 255, 255, 0.04);
 }
 
+body.mode-enabled .concept-point {
+    border-color: rgba(24, 39, 56, 0.12);
+    background:
+        linear-gradient(160deg, rgba(255, 255, 255, 0.98), rgba(246, 239, 230, 0.94)),
+        #ffffff;
+    box-shadow: 0 18px 40px rgba(23, 37, 52, 0.1);
+    color: #182736;
+}
+
 .pricing-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
 }
@@ -3530,6 +3539,18 @@ body.mode-enabled .tool-chip[aria-pressed="true"] {
     text-transform: none;
 }
 
+.about-banner-content p,
+.packages-banner-content p,
+.blog-banner-content p,
+.gallery-banner-content p,
+.booking-page-body .simple-hero-shell p,
+.contact-page-body .simple-hero-shell p {
+    margin-top: 18px;
+    font-size: clamp(1rem, 1.8vw, 1.35rem);
+    font-weight: 700;
+    line-height: 1.7;
+}
+
 .about-club-copy p {
     color: rgba(255, 255, 255, 0.88);
     font-size: clamp(1rem, 1.35vw, 1.15rem);
@@ -3918,16 +3939,11 @@ body.mode-enabled .tool-chip[aria-pressed="true"] {
 
 .gallery-banner-content h1 {
     font-size: clamp(3.4rem, 7vw, 5.8rem);
-    font-family: "Brush Script MT", "Segoe Script", cursive;
-    font-weight: 400;
     color: #ffffff;
-    line-height: 1;
+    line-height: 1.04;
 }
 
 .gallery-banner-content p {
-    margin-top: 18px;
-    font-size: clamp(1rem, 1.8vw, 1.45rem);
-    font-weight: 800;
     color: #ffffff;
 }
 
@@ -6004,17 +6020,16 @@ body.mode-enabled .home-two-showcase-image img {
 .contact-page-body .simple-hero-shell h1 {
     max-width: none;
     font-size: clamp(3.4rem, 7vw, 5.8rem);
-    font-family: 'Brush Script MT', 'Segoe Script', cursive;
-    font-weight: 400;
+    font-family: 'Outfit', sans-serif !important;
+    font-weight: 800;
     color: #ffffff;
-    line-height: 1;
+    line-height: 1.04;
+    letter-spacing: -0.04em;
+    text-transform: none;
 }
 
 .booking-page-body .simple-hero-shell p,
 .contact-page-body .simple-hero-shell p {
-    margin-top: 18px;
-    font-size: clamp(1rem, 1.8vw, 1.45rem);
-    font-weight: 800;
     color: #ffffff;
     max-width: 34ch;
     margin-left: auto;
