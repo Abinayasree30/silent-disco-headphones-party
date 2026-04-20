@@ -22,6 +22,8 @@ const ensureHomeDropdownButton = () => {
     });
 };
 
+const mobileNavBreakpoint = 1024;
+
 if (funFactNumbers.length) {
     const animateValue = (element) => {
         const target = Number(element.dataset.target || 0);
@@ -95,6 +97,8 @@ setActiveMenu();
 const initMobileNav = () => {
     const headerWrap = document.querySelector(".header-wrap");
     const mainNav = document.querySelector(".main-nav");
+    const siteTools = document.querySelector(".site-tools");
+    const siteToolsParent = siteTools?.parentElement || null;
 
     if (!headerWrap || !mainNav) {
         return;
@@ -122,8 +126,29 @@ const initMobileNav = () => {
         headerWrap.insertBefore(menuToggle, mainNav);
     }
 
+    const syncResponsiveTools = () => {
+        if (!siteTools) {
+            return;
+        }
+
+        const shouldNestTools = window.innerWidth <= mobileNavBreakpoint;
+
+        if (shouldNestTools) {
+            if (siteTools.parentElement !== mainNav) {
+                mainNav.appendChild(siteTools);
+            }
+            return;
+        }
+
+        if (siteToolsParent && siteTools.parentElement !== siteToolsParent) {
+            siteToolsParent.appendChild(siteTools);
+        }
+    };
+
     const syncMenuState = () => {
-        const isMobile = window.innerWidth <= 768;
+        const isMobile = window.innerWidth <= mobileNavBreakpoint;
+
+        syncResponsiveTools();
 
         if (!isMobile) {
             mainNav.classList.remove("is-open");
@@ -146,7 +171,7 @@ const initMobileNav = () => {
 
     mainNav.querySelectorAll(".has-dropdown > .nav-link").forEach((link) => {
         link.addEventListener("click", (event) => {
-            if (window.innerWidth > 768) {
+            if (window.innerWidth > mobileNavBreakpoint) {
                 return;
             }
 
@@ -168,7 +193,7 @@ const initMobileNav = () => {
 
     mainNav.querySelectorAll("a").forEach((link) => {
         link.addEventListener("click", () => {
-            if (window.innerWidth > 768 || link.classList.contains("nav-link")) {
+            if (window.innerWidth > mobileNavBreakpoint || link.classList.contains("nav-link")) {
                 return;
             }
 
