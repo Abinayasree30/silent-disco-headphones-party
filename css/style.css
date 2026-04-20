@@ -9848,6 +9848,20 @@ html.mode-enabled :is(.footer-socials a, .auth-social-btn):is(:hover, :focus-vis
     transform: translateY(-3px);
 }
 
+/* Absolute final footer arrows and contact icons color. */
+:is(.footer-links a i, .footer-contact i),
+body.mode-enabled :is(.footer-links a i, .footer-contact i),
+html.mode-enabled :is(.footer-links a i, .footer-contact i) {
+    color: #ff6a1a !important;
+    -webkit-text-fill-color: #ff6a1a !important;
+}
+
+body.mode-enabled .site-footer .footer-cta-btn,
+html.mode-enabled .site-footer .footer-cta-btn {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+}
+
 /* Absolute final About story readability fix in toggle mode. */
 html.mode-enabled .about-page-main .about-story-hero,
 body.mode-enabled .about-page-main .about-story-hero {
