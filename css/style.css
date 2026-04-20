@@ -310,12 +310,14 @@ img {
     height: 22px;
     border-radius: 50%;
     border: 1px solid rgba(255, 106, 26, 0.32);
+    background: rgba(255, 106, 26, 0.1);
     display: inline-flex;
     align-items: center;
     justify-content: center;
     color: #ff8a3d;
     font-size: 0.62rem;
     line-height: 1;
+    flex: 0 0 22px;
     transition: transform 0.25s ease, background 0.25s ease, border-color 0.25s ease;
 }
 
@@ -527,7 +529,7 @@ img {
     border: 0;
     color: #ffffff;
     margin-bottom: 22px;
-    font-size: clamp(1.05rem, 2vw, 1.55rem);
+    font-size: clamp(1.25rem, 2.4vw, 1.95rem);
     font-weight: 900;
     letter-spacing: 0.08em;
     text-transform: uppercase;
@@ -1316,8 +1318,8 @@ body.mode-enabled .section-block .card .card-icon {
 }
 
 .hero-panel {
-    min-height: 100%;
     display: flex;
+    align-self: start;
 }
 
 .panel-card {
@@ -1484,7 +1486,9 @@ body.mode-enabled .section-block .card .card-icon {
 .why-copy-block {
     display: grid;
     gap: 22px;
-    align-content: start;
+    align-content: center;
+    min-height: 100%;
+    padding-block: 20px;
 }
 
 .why-list {
@@ -2966,15 +2970,34 @@ body.mode-enabled .concept-point {
     flex-direction: row-reverse;
 }
 
-[dir="rtl"] .main-nav {
+[dir="rtl"] .header-wrap {
+    direction: ltr;
     flex-direction: row;
-    justify-content: flex-start;
+}
+
+[dir="rtl"] .logo-box {
+    order: 3;
+}
+
+[dir="rtl"] .main-nav {
+    order: 2;
+    direction: ltr;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
     margin-left: 0;
-    margin-right: clamp(48px, 6vw, 112px);
+    margin-right: 0;
 }
 
 [dir="rtl"] .site-tools {
+    order: 1;
+    direction: ltr;
     flex-direction: row;
+    margin-left: 0;
+    margin-right: auto;
+}
+
+[dir="rtl"] .menu-toggle {
+    order: 2;
     margin-left: 0;
     margin-right: 0;
 }
@@ -2990,14 +3013,14 @@ body.mode-enabled .concept-point {
 
 @media (max-width: 1180px) {
     [dir="rtl"] .main-nav {
-        justify-content: flex-start;
+        justify-content: flex-end;
         margin-right: 0;
     }
 }
 
 @media (max-width: 1320px) {
     [dir="rtl"] .main-nav {
-        margin-right: 28px;
+        margin-right: 0;
     }
 }
 
@@ -3058,6 +3081,161 @@ body.mode-enabled .concept-point {
 
 [dir="rtl"] .footer-cta-btn {
     align-self: flex-end;
+}
+
+[dir="rtl"] .image-hero-content,
+[dir="rtl"] .rhythm-heading,
+[dir="rtl"] .section-heading,
+[dir="rtl"] .hero-copy,
+[dir="rtl"] .rhythm-card-copy,
+[dir="rtl"] .club-card-content,
+[dir="rtl"] .club-hover-content,
+[dir="rtl"] .contact-copy-block,
+[dir="rtl"] .event-spotlight-copy,
+[dir="rtl"] .gallery-preview-shell .section-heading,
+[dir="rtl"] .home-two-slider-content,
+[dir="rtl"] .home-two-showcase-copy,
+[dir="rtl"] .about-banner-content,
+[dir="rtl"] .packages-banner-content,
+[dir="rtl"] .blog-banner-content,
+[dir="rtl"] .gallery-banner-content,
+[dir="rtl"] .gallery-banner-classic-content,
+[dir="rtl"] .inner-page-copy {
+    text-align: right;
+}
+
+[dir="rtl"] .image-hero-actions,
+[dir="rtl"] .hero-actions,
+[dir="rtl"] .hero-highlights,
+[dir="rtl"] .hero-proof,
+[dir="rtl"] .footer-socials,
+[dir="rtl"] .cta-alt-actions {
+    justify-content: flex-end;
+}
+
+[dir="rtl"] .hero-layout,
+[dir="rtl"] .why-grid,
+[dir="rtl"] .contact-shell,
+[dir="rtl"] .gallery-preview-shell,
+[dir="rtl"] .home-two-showcase-grid,
+[dir="rtl"] .event-spotlight-shell,
+[dir="rtl"] .about-story-shell,
+[dir="rtl"] .about-offer-grid,
+[dir="rtl"] .packages-fit-grid,
+[dir="rtl"] .packages-addons-shell,
+[dir="rtl"] .blog-showcase-shell,
+[dir="rtl"] .blog-editorial-shell,
+[dir="rtl"] .blog-insight-grid,
+[dir="rtl"] .booking-shell,
+[dir="rtl"] .contact-page-grid,
+[dir="rtl"] .contact-grid,
+[dir="rtl"] .gallery-banner-content-rich,
+[dir="rtl"] .gallery-category-card-featured {
+    direction: rtl;
+}
+
+[dir="rtl"] .hero-layout > *,
+[dir="rtl"] .why-grid > *,
+[dir="rtl"] .contact-shell > *,
+[dir="rtl"] .gallery-preview-shell > *,
+[dir="rtl"] .home-two-showcase-grid > *,
+[dir="rtl"] .event-spotlight-shell > *,
+[dir="rtl"] .about-story-shell > *,
+[dir="rtl"] .about-offer-grid > *,
+[dir="rtl"] .packages-fit-grid > *,
+[dir="rtl"] .packages-addons-shell > *,
+[dir="rtl"] .blog-showcase-shell > *,
+[dir="rtl"] .blog-editorial-shell > *,
+[dir="rtl"] .blog-insight-grid > *,
+[dir="rtl"] .booking-shell > *,
+[dir="rtl"] .contact-page-grid > *,
+[dir="rtl"] .contact-grid > *,
+[dir="rtl"] .gallery-banner-content-rich > *,
+[dir="rtl"] .gallery-category-card-featured > * {
+    direction: rtl;
+}
+
+[dir="rtl"] .rhythm-grid,
+[dir="rtl"] .features,
+[dir="rtl"] .club-grid,
+[dir="rtl"] .why-proof-grid,
+[dir="rtl"] .why-list,
+[dir="rtl"] .contact-copy-points,
+[dir="rtl"] .contact-meta,
+[dir="rtl"] .process-grid,
+[dir="rtl"] .impact-grid,
+[dir="rtl"] .testimonials-grid,
+[dir="rtl"] .preview-grid,
+[dir="rtl"] .event-gallery-strip,
+[dir="rtl"] .footer-grid,
+[dir="rtl"] .home-two-showcase-points,
+[dir="rtl"] .special-projects-grid,
+[dir="rtl"] .gallery-category-grid,
+[dir="rtl"] .gallery-only-grid,
+[dir="rtl"] .packages-plan-grid,
+[dir="rtl"] .packages-addons-grid,
+[dir="rtl"] .blog-cards-grid {
+    direction: rtl;
+}
+
+[dir="rtl"] .rhythm-grid > *,
+[dir="rtl"] .features > *,
+[dir="rtl"] .club-grid > *,
+[dir="rtl"] .why-proof-grid > *,
+[dir="rtl"] .why-list > *,
+[dir="rtl"] .contact-copy-points > *,
+[dir="rtl"] .contact-meta > *,
+[dir="rtl"] .process-grid > *,
+[dir="rtl"] .impact-grid > *,
+[dir="rtl"] .testimonials-grid > *,
+[dir="rtl"] .preview-grid > *,
+[dir="rtl"] .event-gallery-strip > *,
+[dir="rtl"] .footer-grid > *,
+[dir="rtl"] .home-two-showcase-points > *,
+[dir="rtl"] .special-projects-grid > *,
+[dir="rtl"] .gallery-category-grid > *,
+[dir="rtl"] .gallery-only-grid > *,
+[dir="rtl"] .packages-plan-grid > *,
+[dir="rtl"] .packages-addons-grid > *,
+[dir="rtl"] .blog-cards-grid > * {
+    direction: rtl;
+}
+
+[dir="rtl"] .card,
+[dir="rtl"] .why-item,
+[dir="rtl"] .why-proof-card,
+[dir="rtl"] .process-card,
+[dir="rtl"] .impact-card,
+[dir="rtl"] .testimonial-card,
+[dir="rtl"] .contact-card,
+[dir="rtl"] .panel-card,
+[dir="rtl"] .home-two-showcase-point {
+    text-align: right;
+}
+
+[dir="rtl"] .image-hero-video,
+[dir="rtl"] .rhythm-card-image,
+[dir="rtl"] .club-card-image,
+[dir="rtl"] .event-gallery-image,
+[dir="rtl"] .home-two-showcase-image img {
+    object-position: left center;
+}
+
+@media (max-width: 768px) {
+    [dir="rtl"] .hero-layout,
+    [dir="rtl"] .why-grid,
+    [dir="rtl"] .contact-shell,
+    [dir="rtl"] .gallery-preview-shell,
+    [dir="rtl"] .home-two-showcase-grid,
+    [dir="rtl"] .event-spotlight-shell,
+    [dir="rtl"] .about-story-shell,
+    [dir="rtl"] .about-offer-grid,
+    [dir="rtl"] .packages-fit-grid,
+    [dir="rtl"] .booking-shell,
+    [dir="rtl"] .contact-page-grid,
+    [dir="rtl"] .contact-grid {
+        direction: rtl;
+    }
 }
 
 .site-footer {
@@ -7207,6 +7385,277 @@ body.mode-enabled .scroll-top-button:hover {
     }
 }
 
+/* Whole-site RTL sweep */
+[dir="rtl"] main,
+[dir="rtl"] .site-footer {
+    direction: rtl;
+    text-align: right;
+}
+
+[dir="rtl"] .site-header .header-wrap {
+    direction: ltr;
+}
+
+[dir="rtl"] main :where(
+    .section-heading,
+    .left-align,
+    .image-hero-content,
+    .home-two-slider-content,
+    .about-banner-content,
+    .packages-banner-content,
+    .blog-banner-content,
+    .gallery-banner-content,
+    .gallery-banner-classic-content,
+    .simple-hero-shell,
+    .inner-page-shell,
+    .inner-page-copy,
+    .hero-copy,
+    .rhythm-heading,
+    .rhythm-card-copy,
+    .club-card-content,
+    .club-hover-content,
+    .about-club-copy,
+    .about-story-copy,
+    .about-story-aside,
+    .about-signature-intro,
+    .about-values-panel,
+    .about-quote-panel,
+    .about-offers-head,
+    .packages-addons-copy,
+    .blog-insight-copy,
+    .event-spotlight-copy,
+    .contact-copy-block,
+    .form-card,
+    .info-card,
+    .booking-form-card,
+    .booking-summary-card,
+    .auth-form-card,
+    .auth-benefits
+) {
+    direction: rtl;
+    text-align: right;
+}
+
+[dir="rtl"] main :where(
+    .about-banner-content,
+    .packages-banner-content,
+    .blog-banner-content,
+    .gallery-banner-content,
+    .gallery-banner-classic-content,
+    .simple-hero-shell,
+    .inner-page-shell,
+    .image-hero-content,
+    .home-two-slider-content
+) {
+    align-items: flex-end;
+}
+
+[dir="rtl"] main :where(
+    .hero-layout,
+    .why-grid,
+    .contact-shell,
+    .gallery-preview-shell,
+    .event-spotlight-shell,
+    .home-two-showcase-grid,
+    .about-club-shell,
+    .about-story-shell,
+    .about-signature-grid,
+    .about-offer-grid,
+    .about-dj-grid,
+    .blog-insight-grid,
+    .blog-showcase-shell,
+    .blog-editorial-shell,
+    .packages-addons-shell,
+    .packages-fit-grid,
+    .booking-shell,
+    .contact-page-grid,
+    .contact-grid,
+    .auth-shell,
+    .input-grid
+) {
+    direction: rtl;
+}
+
+[dir="rtl"] main :where(
+    .hero-layout,
+    .why-grid,
+    .contact-shell,
+    .gallery-preview-shell,
+    .event-spotlight-shell,
+    .home-two-showcase-grid,
+    .about-club-shell,
+    .about-story-shell,
+    .about-signature-grid,
+    .about-offer-grid,
+    .about-dj-grid,
+    .blog-insight-grid,
+    .blog-showcase-shell,
+    .blog-editorial-shell,
+    .packages-addons-shell,
+    .packages-fit-grid,
+    .booking-shell,
+    .contact-page-grid,
+    .contact-grid,
+    .auth-shell,
+    .input-grid
+) > * {
+    direction: rtl;
+}
+
+[dir="rtl"] main :where(
+    .features,
+    .rhythm-grid,
+    .club-grid,
+    .why-proof-grid,
+    .why-list,
+    .contact-copy-points,
+    .contact-meta,
+    .process-grid,
+    .impact-grid,
+    .testimonials-grid,
+    .preview-grid,
+    .event-gallery-strip,
+    .audience-grid,
+    .zones-grid,
+    .pricing-grid,
+    .special-projects-grid,
+    .packages-comparison-grid,
+    .packages-addons-grid,
+    .blog-showcase-grid,
+    .blog-widget-grid,
+    .gallery-only-grid,
+    .gallery-category-grid,
+    .hero-stats,
+    .hero-proof,
+    .hero-highlights
+) {
+    direction: rtl;
+}
+
+[dir="rtl"] main :where(
+    .card,
+    .rhythm-card,
+    .club-card,
+    .why-proof-card,
+    .why-item,
+    .process-card,
+    .impact-card,
+    .testimonial-card,
+    .preview-card,
+    .audience-card,
+    .zone-card,
+    .price-card,
+    .special-project-card,
+    .packages-plan-card,
+    .packages-fit-panel,
+    .packages-note-shell,
+    .blog-widget,
+    .blog-showcase-card,
+    .blog-story-card,
+    .blog-journal-item,
+    .gallery-only-card,
+    .contact-card,
+    .panel-card,
+    .hero-stat,
+    .home-two-showcase-point
+) {
+    direction: rtl;
+    text-align: right;
+}
+
+[dir="rtl"] main :where(
+    .image-hero-actions,
+    .hero-actions,
+    .hero-alt-actions,
+    .cta-alt-actions,
+    .hero-highlights,
+    .hero-proof,
+    .contact-meta,
+    .club-heading,
+    .home-two-showcase-points,
+    .booking-quick-picks,
+    .helper-links
+),
+[dir="rtl"] .site-footer :where(.footer-socials) {
+    justify-content: flex-end;
+}
+
+[dir="rtl"] main :where(
+    .footer-links a,
+    .footer-contact p,
+    .contact-card-list p,
+    .info-list p,
+    .booking-summary-row,
+    .blog-latest-list article,
+    .blog-widget-list a,
+    .packages-addons-grid article,
+    .about-offer-item,
+    .about-method-step,
+    .about-faqlite-grid article
+) {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] main :where(input, textarea, select),
+[dir="rtl"] .site-footer :where(input, textarea, select) {
+    direction: rtl;
+    text-align: right;
+}
+
+[dir="rtl"] main :where(.password-field input) {
+    padding-left: 54px;
+    padding-right: 18px;
+}
+
+[dir="rtl"] main :where(.password-toggle) {
+    left: 12px;
+    right: auto;
+}
+
+[dir="rtl"] .site-footer :where(.footer-grid, .footer-brand, .footer-links, .footer-contact, .footer-cta) {
+    direction: rtl;
+    text-align: right;
+}
+
+[dir="rtl"] .site-footer :where(.footer-grid > div, .footer-cta, .footer-brand) {
+    align-items: flex-end;
+}
+
+[dir="rtl"] .site-footer :where(.footer-links a, .footer-contact p) {
+    flex-direction: row-reverse;
+    justify-content: flex-start;
+}
+
+[dir="rtl"] main :where(
+    .image-hero-video,
+    .rhythm-card-image,
+    .club-card-image,
+    .event-gallery-image,
+    .home-two-showcase-image img,
+    .about-club-image,
+    .about-offer-media img,
+    .about-dj-card img,
+    .gallery-only-card img,
+    .gallery-photo-tile img,
+    .gallery-strip-card img,
+    .gallery-archive-card img
+) {
+    object-position: left center;
+}
+
+[dir="rtl"] main :where(
+    .about-banner-media,
+    .packages-banner-media,
+    .blog-banner-media,
+    .gallery-banner-media,
+    .home-two-slide,
+    .preview-card,
+    .event-spotlight-section,
+    .inner-page-hero
+) {
+    background-position: left center;
+}
+
 body.motion-ready main > section,
 body.motion-ready .site-footer {
     opacity: 0;
@@ -7297,5 +7746,1603 @@ body.mode-enabled.motion-ready [data-reveal] {
     body.motion-ready [data-reveal] {
         opacity: 1 !important;
         transform: none !important;
+    }
+}
+
+/* Final RTL alignment override */
+html[dir="rtl"] body {
+    direction: rtl;
+    text-align: right;
+}
+
+html[dir="rtl"] .site-header .header-wrap {
+    direction: ltr;
+    flex-direction: row !important;
+}
+
+html[dir="rtl"] .site-header .site-tools {
+    order: 1;
+    margin-left: 0 !important;
+    margin-right: auto !important;
+    justify-content: flex-start;
+}
+
+html[dir="rtl"] .site-header .main-nav {
+    order: 2;
+    direction: ltr;
+    flex-direction: row-reverse !important;
+    justify-content: flex-end !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+html[dir="rtl"] .site-header .logo-box {
+    order: 3;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+html[dir="rtl"] main,
+html[dir="rtl"] footer {
+    direction: rtl;
+    text-align: right;
+}
+
+html[dir="rtl"] main :is(
+    h1,
+    h2,
+    h3,
+    h4,
+    p,
+    li,
+    label,
+    small,
+    .section-heading,
+    .left-align,
+    .image-hero-content,
+    .hero-copy,
+    .rhythm-heading,
+    .rhythm-card-copy,
+    .club-card-content,
+    .club-hover-content,
+    .event-spotlight-copy,
+    .about-banner-content,
+    .packages-banner-content,
+    .blog-banner-content,
+    .gallery-banner-content,
+    .simple-hero-shell,
+    .inner-page-shell,
+    .home-two-slider-content,
+    .home-two-showcase-copy,
+    .about-club-copy,
+    .about-story-copy,
+    .blog-insight-copy,
+    .packages-addons-copy,
+    .contact-copy-block,
+    .form-card,
+    .info-card,
+    .booking-form-card,
+    .booking-summary-card,
+    .auth-form-card,
+    .auth-benefits
+) {
+    text-align: right !important;
+}
+
+html[dir="rtl"] main :is(
+    .hero-layout,
+    .why-grid,
+    .contact-shell,
+    .gallery-preview-shell,
+    .event-spotlight-shell,
+    .home-two-showcase-grid,
+    .about-club-shell,
+    .about-story-shell,
+    .about-signature-grid,
+    .about-offer-grid,
+    .about-dj-grid,
+    .blog-insight-grid,
+    .blog-showcase-shell,
+    .blog-editorial-shell,
+    .packages-addons-shell,
+    .packages-fit-grid,
+    .booking-shell,
+    .contact-page-grid,
+    .contact-grid,
+    .auth-shell,
+    .input-grid
+) {
+    direction: rtl !important;
+}
+
+html[dir="rtl"] main :is(
+    .features,
+    .rhythm-grid,
+    .club-grid,
+    .why-proof-grid,
+    .why-list,
+    .contact-copy-points,
+    .contact-meta,
+    .process-grid,
+    .impact-grid,
+    .testimonials-grid,
+    .preview-grid,
+    .event-gallery-strip,
+    .audience-grid,
+    .zones-grid,
+    .pricing-grid,
+    .special-projects-grid,
+    .packages-comparison-grid,
+    .packages-addons-grid,
+    .blog-showcase-grid,
+    .blog-widget-grid,
+    .gallery-only-grid,
+    .gallery-category-grid,
+    .hero-stats,
+    .hero-proof
+) {
+    direction: rtl !important;
+}
+
+html[dir="rtl"] main :is(
+    .image-hero-actions,
+    .hero-actions,
+    .hero-alt-actions,
+    .cta-alt-actions,
+    .hero-highlights,
+    .hero-proof,
+    .contact-meta,
+    .booking-quick-picks,
+    .helper-links
+) {
+    justify-content: flex-end !important;
+}
+
+html[dir="rtl"] main :is(
+    input,
+    textarea,
+    select
+) {
+    direction: rtl;
+    text-align: right !important;
+}
+
+html[dir="rtl"] main :is(
+    .footer-links a,
+    .footer-contact p,
+    .contact-card-list p,
+    .info-list p,
+    .booking-summary-row,
+    .blog-widget-list a,
+    .packages-addons-grid article,
+    .about-offer-item,
+    .about-method-step
+) {
+    flex-direction: row-reverse !important;
+}
+
+html[dir="rtl"] .site-footer,
+html[dir="rtl"] .site-footer .footer-grid,
+html[dir="rtl"] .site-footer .footer-brand,
+html[dir="rtl"] .site-footer .footer-links,
+html[dir="rtl"] .site-footer .footer-contact,
+html[dir="rtl"] .site-footer .footer-cta {
+    direction: rtl;
+    text-align: right !important;
+}
+
+html[dir="rtl"] .site-footer .footer-grid > div,
+html[dir="rtl"] .site-footer .footer-brand,
+html[dir="rtl"] .site-footer .footer-cta {
+    align-items: flex-end !important;
+}
+
+html[dir="rtl"] .site-footer .footer-socials {
+    justify-content: flex-end !important;
+}
+
+html[dir="rtl"] .site-footer .footer-links a,
+html[dir="rtl"] .site-footer .footer-contact p {
+    flex-direction: row-reverse !important;
+}
+
+@media (max-width: 768px) {
+    html[dir="rtl"] .site-header .header-wrap {
+        direction: ltr;
+    }
+
+    html[dir="rtl"] .site-header .logo-box {
+        order: 1;
+    }
+
+    html[dir="rtl"] .site-header .menu-toggle {
+        order: 2;
+        margin-left: auto !important;
+        margin-right: 0 !important;
+    }
+
+    html[dir="rtl"] .site-header .site-tools {
+        order: 3;
+        width: 100%;
+        justify-content: flex-end !important;
+        margin-right: 0 !important;
+    }
+
+    html[dir="rtl"] .site-header .main-nav {
+        order: 4;
+        direction: rtl;
+        align-items: flex-end !important;
+        text-align: right !important;
+    }
+}
+
+/* Booking and contact page RTL hard override */
+html[dir="rtl"] body.booking-page-body,
+html[dir="rtl"] body.contact-page-body,
+body.is-rtl.booking-page-body,
+body.is-rtl.contact-page-body {
+    direction: rtl !important;
+    text-align: right !important;
+}
+
+html[dir="rtl"] body.booking-page-body .booking-shell,
+html[dir="rtl"] body.contact-page-body .contact-page-grid,
+body.is-rtl.booking-page-body .booking-shell,
+body.is-rtl.contact-page-body .contact-page-grid {
+    direction: rtl !important;
+}
+
+html[dir="rtl"] body.booking-page-body .booking-form-card,
+html[dir="rtl"] body.booking-page-body .booking-sidebar,
+html[dir="rtl"] body.booking-page-body .booking-summary-card,
+html[dir="rtl"] body.booking-page-body .booking-benefit-card,
+html[dir="rtl"] body.contact-page-body .form-card,
+html[dir="rtl"] body.contact-page-body .info-card,
+body.is-rtl.booking-page-body .booking-form-card,
+body.is-rtl.booking-page-body .booking-sidebar,
+body.is-rtl.booking-page-body .booking-summary-card,
+body.is-rtl.booking-page-body .booking-benefit-card,
+body.is-rtl.contact-page-body .form-card,
+body.is-rtl.contact-page-body .info-card {
+    direction: rtl !important;
+    text-align: right !important;
+}
+
+html[dir="rtl"] body.booking-page-body .section-heading,
+html[dir="rtl"] body.contact-page-body .section-heading,
+html[dir="rtl"] body.contact-page-body .contact-map-heading,
+body.is-rtl.booking-page-body .section-heading,
+body.is-rtl.contact-page-body .section-heading,
+body.is-rtl.contact-page-body .contact-map-heading {
+    margin-left: auto !important;
+    margin-right: 0 !important;
+    text-align: right !important;
+}
+
+html[dir="rtl"] body.booking-page-body .input-grid,
+html[dir="rtl"] body.contact-page-body .input-grid,
+body.is-rtl.booking-page-body .input-grid,
+body.is-rtl.contact-page-body .input-grid {
+    direction: rtl !important;
+}
+
+html[dir="rtl"] body.booking-page-body .input-field,
+html[dir="rtl"] body.contact-page-body .input-field,
+body.is-rtl.booking-page-body .input-field,
+body.is-rtl.contact-page-body .input-field {
+    direction: rtl !important;
+    text-align: right !important;
+}
+
+html[dir="rtl"] body.booking-page-body .input-field input,
+html[dir="rtl"] body.booking-page-body .input-field textarea,
+html[dir="rtl"] body.booking-page-body .input-field select,
+html[dir="rtl"] body.contact-page-body .input-field input,
+html[dir="rtl"] body.contact-page-body .input-field textarea,
+html[dir="rtl"] body.contact-page-body .input-field select,
+body.is-rtl.booking-page-body .input-field input,
+body.is-rtl.booking-page-body .input-field textarea,
+body.is-rtl.booking-page-body .input-field select,
+body.is-rtl.contact-page-body .input-field input,
+body.is-rtl.contact-page-body .input-field textarea,
+body.is-rtl.contact-page-body .input-field select {
+    direction: rtl !important;
+    text-align: right !important;
+}
+
+html[dir="rtl"] body.booking-page-body .booking-quick-picks,
+html[dir="rtl"] body.booking-page-body .booking-submit-helper,
+html[dir="rtl"] body.booking-page-body .booking-afterglow,
+html[dir="rtl"] body.booking-page-body .booking-benefits,
+html[dir="rtl"] body.contact-page-body .contact-form-support,
+html[dir="rtl"] body.contact-page-body .hero-highlights,
+body.is-rtl.booking-page-body .booking-quick-picks,
+body.is-rtl.booking-page-body .booking-submit-helper,
+body.is-rtl.booking-page-body .booking-afterglow,
+body.is-rtl.booking-page-body .booking-benefits,
+body.is-rtl.contact-page-body .contact-form-support,
+body.is-rtl.contact-page-body .hero-highlights {
+    direction: rtl !important;
+    justify-content: flex-end !important;
+    text-align: right !important;
+}
+
+html[dir="rtl"] body.booking-page-body .booking-summary-row,
+html[dir="rtl"] body.contact-page-body .info-list p,
+body.is-rtl.booking-page-body .booking-summary-row,
+body.is-rtl.contact-page-body .info-list p {
+    direction: rtl !important;
+    flex-direction: row-reverse !important;
+    text-align: right !important;
+}
+
+html[dir="rtl"] body.contact-page-body .info-card-points article,
+html[dir="rtl"] body.contact-page-body .contact-map-section,
+body.is-rtl.contact-page-body .info-card-points article,
+body.is-rtl.contact-page-body .contact-map-section {
+    direction: rtl !important;
+    text-align: right !important;
+}
+
+/* Final requested RTL order and booking/contact alignment */
+html[dir="rtl"] .site-header .header-wrap,
+body.is-rtl .site-header .header-wrap {
+    direction: ltr !important;
+    flex-direction: row !important;
+}
+
+html[dir="rtl"] .site-header .site-tools,
+body.is-rtl .site-header .site-tools {
+    order: 1 !important;
+    direction: ltr !important;
+    flex-direction: row-reverse !important;
+    justify-content: flex-start !important;
+    margin-left: 0 !important;
+    margin-right: auto !important;
+}
+
+html[dir="rtl"] .site-header .main-nav,
+body.is-rtl .site-header .main-nav {
+    order: 2 !important;
+    direction: ltr !important;
+    flex-direction: row-reverse !important;
+    justify-content: flex-end !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+html[dir="rtl"] .site-header .logo-box,
+body.is-rtl .site-header .logo-box {
+    order: 3 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+html[dir="rtl"] body.booking-page-body main,
+html[dir="rtl"] body.contact-page-body main,
+body.is-rtl.booking-page-body main,
+body.is-rtl.contact-page-body main {
+    direction: rtl !important;
+    text-align: right !important;
+}
+
+html[dir="rtl"] body.booking-page-body .booking-shell,
+html[dir="rtl"] body.contact-page-body .contact-page-grid,
+body.is-rtl.booking-page-body .booking-shell,
+body.is-rtl.contact-page-body .contact-page-grid {
+    direction: rtl !important;
+    text-align: right !important;
+}
+
+html[dir="rtl"] body.booking-page-body .booking-shell > *,
+html[dir="rtl"] body.contact-page-body .contact-page-grid > *,
+body.is-rtl.booking-page-body .booking-shell > *,
+body.is-rtl.contact-page-body .contact-page-grid > * {
+    direction: rtl !important;
+    text-align: right !important;
+}
+
+html[dir="rtl"] body.booking-page-body :is(.booking-form-card, .booking-sidebar, .booking-summary-card, .booking-benefit-card, .booking-pick, .booking-afterglow article),
+html[dir="rtl"] body.contact-page-body :is(.form-card, .info-card, .contact-form-support article, .info-card-points article, .contact-map-heading),
+body.is-rtl.booking-page-body :is(.booking-form-card, .booking-sidebar, .booking-summary-card, .booking-benefit-card, .booking-pick, .booking-afterglow article),
+body.is-rtl.contact-page-body :is(.form-card, .info-card, .contact-form-support article, .info-card-points article, .contact-map-heading) {
+    direction: rtl !important;
+    text-align: right !important;
+}
+
+html[dir="rtl"] body.booking-page-body :is(.section-heading, .compact-heading),
+html[dir="rtl"] body.contact-page-body :is(.section-heading, .compact-heading),
+body.is-rtl.booking-page-body :is(.section-heading, .compact-heading),
+body.is-rtl.contact-page-body :is(.section-heading, .compact-heading) {
+    margin-left: auto !important;
+    margin-right: 0 !important;
+    text-align: right !important;
+}
+
+html[dir="rtl"] body.booking-page-body :is(.input-grid, .site-form, .input-field),
+html[dir="rtl"] body.contact-page-body :is(.input-grid, .site-form, .input-field),
+body.is-rtl.booking-page-body :is(.input-grid, .site-form, .input-field),
+body.is-rtl.contact-page-body :is(.input-grid, .site-form, .input-field) {
+    direction: rtl !important;
+    text-align: right !important;
+}
+
+html[dir="rtl"] body.booking-page-body :is(input, textarea, select),
+html[dir="rtl"] body.contact-page-body :is(input, textarea, select),
+body.is-rtl.booking-page-body :is(input, textarea, select),
+body.is-rtl.contact-page-body :is(input, textarea, select) {
+    direction: rtl !important;
+    text-align: right !important;
+}
+
+html[dir="rtl"] body.booking-page-body :is(.booking-quick-picks, .booking-submit-helper, .booking-afterglow, .booking-benefits),
+html[dir="rtl"] body.contact-page-body :is(.contact-form-support, .hero-highlights),
+body.is-rtl.booking-page-body :is(.booking-quick-picks, .booking-submit-helper, .booking-afterglow, .booking-benefits),
+body.is-rtl.contact-page-body :is(.contact-form-support, .hero-highlights) {
+    direction: rtl !important;
+    justify-content: flex-end !important;
+    text-align: right !important;
+}
+
+html[dir="rtl"] body.booking-page-body .booking-summary-row,
+html[dir="rtl"] body.contact-page-body :is(.info-list p, .footer-contact p),
+body.is-rtl.booking-page-body .booking-summary-row,
+body.is-rtl.contact-page-body :is(.info-list p, .footer-contact p) {
+    direction: rtl !important;
+    flex-direction: row-reverse !important;
+    text-align: right !important;
+}
+
+@media (max-width: 768px) {
+    html[dir="rtl"] .site-header .site-tools,
+    body.is-rtl .site-header .site-tools {
+        order: 1 !important;
+        width: 100% !important;
+        justify-content: flex-start !important;
+        margin-right: 0 !important;
+    }
+
+    html[dir="rtl"] .site-header .logo-box,
+    body.is-rtl .site-header .logo-box {
+        order: 2 !important;
+        margin-left: auto !important;
+    }
+
+    html[dir="rtl"] .site-header .menu-toggle,
+    body.is-rtl .site-header .menu-toggle {
+        order: 3 !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+
+    html[dir="rtl"] .site-header .main-nav,
+    body.is-rtl .site-header .main-nav {
+        order: 4 !important;
+        direction: rtl !important;
+        flex-direction: column !important;
+        align-items: flex-end !important;
+        text-align: right !important;
+    }
+
+    html[dir="rtl"] body.booking-page-body .simple-hero-shell,
+    html[dir="rtl"] body.contact-page-body .simple-hero-shell,
+    body.is-rtl.booking-page-body .simple-hero-shell,
+    body.is-rtl.contact-page-body .simple-hero-shell {
+        width: min(100%, calc(100% - 28px)) !important;
+    }
+}
+
+html[dir="rtl"] main :is(
+    .about-banner-content,
+    .packages-banner-content,
+    .blog-banner-content,
+    .gallery-banner-content,
+    .gallery-banner-classic-content,
+    .image-hero-content,
+    .home-two-slider-content,
+    .simple-hero-shell,
+    .inner-page-shell
+),
+body.is-rtl main :is(
+    .about-banner-content,
+    .packages-banner-content,
+    .blog-banner-content,
+    .gallery-banner-content,
+    .gallery-banner-classic-content,
+    .image-hero-content,
+    .home-two-slider-content,
+    .simple-hero-shell,
+    .inner-page-shell
+) {
+    direction: ltr !important;
+    text-align: center !important;
+    align-items: center !important;
+    justify-items: center !important;
+}
+
+html[dir="rtl"] main :is(
+    .about-banner-content h1,
+    .about-banner-content p,
+    .packages-banner-content h1,
+    .packages-banner-content p,
+    .blog-banner-content h1,
+    .blog-banner-content p,
+    .gallery-banner-content h1,
+    .gallery-banner-content p,
+    .gallery-banner-classic-content h1,
+    .gallery-banner-classic-content p,
+    .image-hero-content h1,
+    .image-hero-content p,
+    .image-hero-tag,
+    .home-two-slider-content h1,
+    .home-two-slider-content p,
+    .home-two-kicker,
+    .simple-hero-shell h1,
+    .simple-hero-shell p,
+    .inner-page-shell h1,
+    .inner-page-shell p
+),
+body.is-rtl main :is(
+    .about-banner-content h1,
+    .about-banner-content p,
+    .packages-banner-content h1,
+    .packages-banner-content p,
+    .blog-banner-content h1,
+    .blog-banner-content p,
+    .gallery-banner-content h1,
+    .gallery-banner-content p,
+    .gallery-banner-classic-content h1,
+    .gallery-banner-classic-content p,
+    .image-hero-content h1,
+    .image-hero-content p,
+    .image-hero-tag,
+    .home-two-slider-content h1,
+    .home-two-slider-content p,
+    .home-two-kicker,
+    .simple-hero-shell h1,
+    .simple-hero-shell p,
+    .inner-page-shell h1,
+    .inner-page-shell p
+) {
+    direction: ltr !important;
+    text-align: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+html[dir="rtl"] main :is(.image-hero-actions, .hero-actions),
+body.is-rtl main :is(.image-hero-actions, .hero-actions) {
+    direction: ltr !important;
+    justify-content: center !important;
+}
+
+body.mode-enabled .site-header {
+    background:
+        linear-gradient(90deg, rgba(63, 34, 14, 0.96), rgba(22, 15, 11, 0.96)) !important;
+    border-bottom-color: rgba(255, 177, 92, 0.3) !important;
+    box-shadow: 0 18px 42px rgba(0, 0, 0, 0.34), 0 0 0 1px rgba(255, 177, 92, 0.08) inset;
+}
+
+body.mode-enabled .site-header .main-nav a,
+body.mode-enabled .site-header .main-nav .nav-link,
+body.mode-enabled .site-header .tool-chip,
+body.mode-enabled .site-header .nav-btn {
+    color: #ffe8c9;
+}
+
+body.mode-enabled .site-header .tool-chip,
+body.mode-enabled .site-header .nav-btn {
+    background: rgba(88, 48, 19, 0.48);
+    border-color: rgba(255, 177, 92, 0.26);
+}
+
+body:not(.mode-enabled) .site-header,
+body:not(.mode-enabled) .site-footer {
+    background: rgba(10, 10, 10, 0.96);
+}
+
+body:not(.mode-enabled) .site-header .main-nav a,
+body:not(.mode-enabled) .site-header .nav-link,
+body:not(.mode-enabled) .site-footer p,
+body:not(.mode-enabled) .site-footer a,
+body:not(.mode-enabled) .site-footer h3,
+body:not(.mode-enabled) .footer-grid strong {
+    color: #fff8f2;
+}
+
+body:not(.mode-enabled) :is(
+    .hero-copy,
+    .panel-card,
+    .card,
+    .why-item,
+    .why-proof-card,
+    .contact-card,
+    .form-card,
+    .info-card,
+    .booking-form-card,
+    .booking-summary-card,
+    .booking-benefit-card,
+    .impact-card,
+    .testimonial-card,
+    .process-card,
+    .preview-card,
+    .zone-card,
+    .packages-plan-card,
+    .packages-addons-grid article,
+    .packages-fit-panel,
+    .packages-note-shell,
+    .blog-widget,
+    .blog-insight-copy,
+    .blog-insight-list article,
+    .blog-journal-item,
+    .gallery-category-card,
+    .gallery-contact-shell,
+    .about-story-copy,
+    .about-story-aside,
+    .about-signature-card,
+    .about-method-step,
+    .about-values-panel,
+    .about-quote-panel
+) {
+    background:
+        linear-gradient(160deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02)),
+        rgba(22, 19, 18, 0.95);
+    border-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 24px 64px rgba(0, 0, 0, 0.34);
+}
+
+body:not(.mode-enabled) :is(
+    .hero-copy h1,
+    .hero-copy h2,
+    .panel-card h3,
+    .card h3,
+    .why-item strong,
+    .why-proof-card strong,
+    .contact-card strong,
+    .form-card h2,
+    .info-card h3,
+    .packages-plan-card h3,
+    .packages-fit-panel h2,
+    .blog-widget h3,
+    .blog-insight-copy h2,
+    .blog-journal-item h3,
+    .gallery-category-card h3,
+    .about-story-copy h2,
+    .about-values-panel h2
+) {
+    color: #fffaf6;
+}
+
+body:not(.mode-enabled) :is(
+    .hero-copy p,
+    .panel-card p,
+    .panel-list li,
+    .panel-meta span,
+    .card p,
+    .why-item p,
+    .why-proof-card p,
+    .contact-card p,
+    .booking-note,
+    .info-card p,
+    .info-card-points span,
+    .packages-plan-card p,
+    .packages-addons-grid p,
+    .packages-fit-panel p,
+    .packages-note-shell p,
+    .blog-widget p,
+    .blog-insight-copy p,
+    .blog-insight-list p,
+    .blog-journal-item p,
+    .gallery-category-card p,
+    .about-story-copy p,
+    .about-story-aside p
+) {
+    color: rgba(255, 244, 236, 0.84);
+}
+
+body :is(
+    .image-hero-content,
+    .home-two-slider-content,
+    .about-banner-content,
+    .packages-banner-content,
+    .blog-banner-content,
+    .gallery-banner-content,
+    .gallery-banner-classic-content,
+    .simple-hero-shell,
+    .event-spotlight-copy,
+    .special-projects-heading
+) :is(h1, h2, h3, p, span, strong) {
+    text-shadow: 0 12px 32px rgba(0, 0, 0, 0.42);
+}
+
+body:not(.mode-enabled) :is(
+    .image-hero-overlay,
+    .home-two-slider-overlay,
+    .about-banner-overlay,
+    .packages-banner-overlay,
+    .blog-banner-overlay,
+    .gallery-banner-overlay,
+    .gallery-banner-hero-classic .gallery-banner-overlay,
+    .event-spotlight-overlay
+) {
+    background:
+        linear-gradient(rgba(8, 10, 18, 0.54), rgba(8, 10, 18, 0.78)),
+        radial-gradient(circle at top, rgba(255, 106, 26, 0.12), transparent 28%),
+        radial-gradient(circle at bottom right, rgba(255, 177, 92, 0.12), transparent 24%);
+}
+
+body.mode-enabled :is(
+    .hero-copy,
+    .panel-card,
+    .card,
+    .why-item,
+    .why-proof-card,
+    .contact-card,
+    .form-card,
+    .info-card,
+    .booking-form-card,
+    .booking-summary-card,
+    .booking-benefit-card,
+    .impact-card,
+    .testimonial-card,
+    .process-card,
+    .preview-card,
+    .zone-card,
+    .packages-plan-card,
+    .packages-addons-grid article,
+    .packages-fit-panel,
+    .packages-note-shell,
+    .blog-widget,
+    .blog-insight-copy,
+    .blog-insight-list article,
+    .blog-journal-item,
+    .gallery-category-card,
+    .gallery-contact-shell,
+    .about-story-copy,
+    .about-story-aside,
+    .about-signature-card,
+    .about-method-step,
+    .about-values-panel,
+    .about-quote-panel
+) {
+    background:
+        linear-gradient(160deg, rgba(255, 255, 255, 0.98), rgba(249, 244, 238, 0.94)),
+        rgba(255, 255, 255, 0.96) !important;
+    border-color: rgba(24, 39, 56, 0.12) !important;
+    box-shadow: 0 18px 44px rgba(23, 37, 52, 0.12) !important;
+}
+
+body.mode-enabled :is(
+    .site-header,
+    .site-footer
+) {
+    background: rgba(248, 244, 238, 0.96) !important;
+    border-color: rgba(24, 39, 56, 0.12) !important;
+}
+
+body.mode-enabled :is(
+    .site-header .main-nav a,
+    .site-header .nav-link,
+    .site-footer p,
+    .site-footer a
+) {
+    color: #324454 !important;
+}
+
+body.mode-enabled :is(
+    .site-footer h3,
+    .site-header .main-nav a.is-current-page,
+    .footer-grid strong
+) {
+    color: #182736 !important;
+}
+
+body.mode-enabled :is(
+    .image-hero-overlay,
+    .home-two-slider-overlay,
+    .about-banner-overlay,
+    .packages-banner-overlay,
+    .blog-banner-overlay,
+    .gallery-banner-overlay,
+    .gallery-banner-hero-classic .gallery-banner-overlay,
+    .event-spotlight-overlay
+) {
+    background:
+        linear-gradient(rgba(18, 24, 34, 0.28), rgba(18, 24, 34, 0.5)),
+        radial-gradient(circle at top, rgba(255, 255, 255, 0.06), transparent 24%),
+        radial-gradient(circle at bottom right, rgba(217, 71, 19, 0.08), transparent 24%) !important;
+}
+
+body.mode-enabled :is(
+    .image-hero-content,
+    .home-two-slider-content,
+    .about-banner-content,
+    .packages-banner-content,
+    .blog-banner-content,
+    .gallery-banner-content,
+    .gallery-banner-classic-content,
+    .simple-hero-shell,
+    .event-spotlight-copy,
+    .special-projects-heading
+) :is(h1, h2, h3, p, span, strong) {
+    color: #ffffff !important;
+    text-shadow: 0 12px 30px rgba(16, 22, 30, 0.28);
+}
+
+body.mode-enabled :is(.tool-chip, .nav-btn, .btn, .btn-secondary) {
+    border-color: rgba(24, 39, 56, 0.16) !important;
+}
+
+body:not(.mode-enabled) .preview-led,
+body.mode-enabled .preview-led {
+    background-image:
+        linear-gradient(180deg, rgba(4, 7, 19, 0.12), rgba(4, 7, 19, 0.82)),
+        url("../img/led-headset.jpg") !important;
+}
+
+body:not(.mode-enabled) .preview-wedding,
+body.mode-enabled .preview-wedding {
+    background-image:
+        linear-gradient(180deg, rgba(4, 7, 19, 0.12), rgba(4, 7, 19, 0.82)),
+        url("../img/wedding-dance.jpg") !important;
+}
+
+body:not(.mode-enabled) .preview-private,
+body.mode-enabled .preview-private {
+    background-image:
+        linear-gradient(180deg, rgba(4, 7, 19, 0.12), rgba(4, 7, 19, 0.82)),
+        url("../img/private-party.jpg") !important;
+}
+
+body:not(.mode-enabled) .preview-dj,
+body.mode-enabled .preview-dj {
+    background-image:
+        linear-gradient(180deg, rgba(4, 7, 19, 0.12), rgba(4, 7, 19, 0.82)),
+        url("../img/dj-booth.jpg") !important;
+}
+
+body:not(.mode-enabled) .preview-college,
+body.mode-enabled .preview-college {
+    background-image:
+        linear-gradient(180deg, rgba(4, 7, 19, 0.16), rgba(4, 7, 19, 0.82)),
+        url("../img/college-event.jpg") !important;
+}
+
+body :is(.preview-led, .preview-wedding, .preview-private, .preview-dj, .preview-college) {
+    background-position: center !important;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+}
+
+body.mode-enabled .preview-card {
+    background-color: transparent !important;
+}
+
+body.mode-enabled .special-project-card {
+    background: rgba(24, 28, 40, 0.92) !important;
+}
+
+body.mode-enabled .special-project-image,
+body.mode-enabled .gallery-only-card img,
+body.mode-enabled .gallery-photo-tile img,
+body.mode-enabled .gallery-strip-card img,
+body.mode-enabled .gallery-archive-card img,
+body.mode-enabled .about-club-image,
+body.mode-enabled .rhythm-card-image,
+body.mode-enabled .club-card-image,
+body.mode-enabled .home-two-showcase-image img {
+    opacity: 1 !important;
+    filter: none !important;
+}
+
+body.mode-enabled .dropdown-menu {
+    background: rgba(255, 250, 244, 0.98) !important;
+    border-color: rgba(24, 39, 56, 0.12) !important;
+    box-shadow: 0 18px 40px rgba(23, 37, 52, 0.14) !important;
+}
+
+body.mode-enabled .dropdown-menu a {
+    color: #24384a !important;
+}
+
+body.mode-enabled .dropdown-menu a:hover {
+    background: rgba(217, 71, 19, 0.08) !important;
+    color: #d94713 !important;
+}
+
+body:not(.mode-enabled) .footer-bottom {
+    background: #0a0808 !important;
+    color: rgba(236, 234, 246, 0.72) !important;
+}
+
+body.mode-enabled .footer-bottom {
+    background: rgba(244, 238, 231, 0.98) !important;
+    border-top-color: rgba(24, 39, 56, 0.12) !important;
+    color: #4f6173 !important;
+}
+
+body.mode-enabled .footer-bottom p {
+    color: #4f6173 !important;
+}
+
+/* Final light-mode correction: keep image sections visible and force dark page bands to turn light. */
+html.mode-enabled,
+body.mode-enabled {
+    --bg: #f4f7f8;
+    --bg-deep: #ffffff;
+    --panel: rgba(255, 255, 255, 0.96);
+    --panel-soft: rgba(24, 39, 56, 0.05);
+    --line: rgba(24, 39, 56, 0.12);
+    --text: #182736;
+    --muted: #5d6d7d;
+    --header-footer-bg: rgba(248, 244, 238, 0.96);
+    --header-footer-border: rgba(24, 39, 56, 0.12);
+    --header-footer-text: #324454;
+    background:
+        radial-gradient(circle at top left, rgba(217, 71, 19, 0.1), transparent 26%),
+        radial-gradient(circle at 85% 10%, rgba(255, 177, 92, 0.13), transparent 24%),
+        linear-gradient(160deg, #f7fafb 0%, #eef4f6 45%, #fff8f2 100%) !important;
+    color: #182736 !important;
+}
+
+body.mode-enabled::before {
+    background:
+        linear-gradient(rgba(24, 39, 56, 0.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(24, 39, 56, 0.045) 1px, transparent 1px) !important;
+}
+
+body.mode-enabled main,
+body.mode-enabled :is(
+    .section-block,
+    .club-section,
+    .about-page-main,
+    .about-club-section,
+    .about-offers-section,
+    .about-dj-section,
+    .about-clients-section,
+    .gallery-only-section,
+    .special-projects-section,
+    .packages-page-main,
+    .blog-page-main,
+    .gallery-page-main
+) {
+    background:
+        radial-gradient(circle at top left, rgba(217, 71, 19, 0.08), transparent 28%),
+        linear-gradient(160deg, #f7fafb 0%, #eef4f6 52%, #fff8f2 100%) !important;
+    color: #182736 !important;
+}
+
+body.mode-enabled .about-offers-section::before,
+body.mode-enabled .about-dj-section::before,
+body.mode-enabled .about-clients-section::before,
+body.mode-enabled .special-projects-overlay {
+    background:
+        radial-gradient(circle at top center, rgba(255, 106, 26, 0.1), transparent 28%),
+        radial-gradient(circle at bottom right, rgba(255, 177, 92, 0.1), transparent 30%),
+        linear-gradient(rgba(247, 250, 251, 0.94), rgba(255, 248, 242, 0.94)) !important;
+}
+
+body.mode-enabled :is(.about-club-shell, .about-club-copy, .about-client-logo-card, .about-dj-card, .special-project-card, .gallery-only-card) {
+    background: rgba(255, 255, 255, 0.94) !important;
+    border-color: rgba(24, 39, 56, 0.12) !important;
+    box-shadow: 0 18px 44px rgba(23, 37, 52, 0.12) !important;
+}
+
+body.mode-enabled :is(
+    .about-club-copy h2,
+    .about-club-copy p,
+    .about-offers-head h2,
+    .about-dj-head h2,
+    .about-clients-head h2,
+    .about-clients-head p,
+    .about-offer-copy h3,
+    .about-offer-copy p,
+    .about-client-logo-card span,
+    .about-client-logo-card small,
+    .special-projects-heading h2,
+    .special-projects-heading p
+) {
+    color: #182736 !important;
+    text-shadow: none !important;
+}
+
+body.mode-enabled .about-offer-line::before {
+    background: rgba(24, 39, 56, 0.22) !important;
+}
+
+body.mode-enabled :is(.about-club-dot, .about-clients-dot) {
+    border-color: rgba(24, 39, 56, 0.42) !important;
+}
+
+body.mode-enabled :is(.about-club-dot.is-active, .about-club-dot:hover, .about-clients-dot.is-active, .about-clients-dot:hover) {
+    border-color: #d94713 !important;
+    background: #d94713 !important;
+}
+
+body.mode-enabled .preview-led {
+    background-image:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(18, 24, 34, 0.56)),
+        url("../img/led-headset.jpg") !important;
+}
+
+body.mode-enabled .preview-wedding {
+    background-image:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(18, 24, 34, 0.56)),
+        url("../img/wedding-dance.jpg") !important;
+}
+
+body.mode-enabled .preview-private {
+    background-image:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(18, 24, 34, 0.56)),
+        url("../img/private-party.jpg") !important;
+}
+
+body.mode-enabled .preview-dj {
+    background-image:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(18, 24, 34, 0.56)),
+        url("../img/dj-booth.jpg") !important;
+}
+
+body.mode-enabled .preview-college {
+    background-image:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(18, 24, 34, 0.58)),
+        url("../img/college-event.jpg") !important;
+}
+
+body.mode-enabled :is(.preview-led, .preview-wedding, .preview-private, .preview-dj, .preview-college) {
+    background-color: transparent !important;
+    background-position: center !important;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+}
+
+body.mode-enabled :is(.preview-card span, .gallery-only-overlay h3, .gallery-only-likes, .gallery-only-likes i, .gallery-only-arrow, .special-project-label) {
+    color: #ffffff !important;
+    text-shadow: 0 8px 18px rgba(0, 0, 0, 0.36) !important;
+}
+
+body.mode-enabled .gallery-only-overlay {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(18, 24, 34, 0.72)) !important;
+}
+
+body.mode-enabled :is(.special-project-image, .gallery-only-card img, .about-club-image, .about-offer-media img, .about-dj-card img, .home-two-showcase-image img) {
+    opacity: 1 !important;
+    filter: brightness(1.04) contrast(1.02) saturate(1.04) !important;
+}
+
+/* Exact light-mode fixes for the screenshot sections. */
+body.mode-enabled .club-section,
+body.mode-enabled .process-section,
+body.mode-enabled .gallery-preview-section,
+body.mode-enabled .packages-comparison-section,
+body.mode-enabled .special-projects-section,
+body.mode-enabled .about-story-hero {
+    background:
+        radial-gradient(circle at top left, rgba(217, 71, 19, 0.08), transparent 28%),
+        linear-gradient(160deg, #f7fafb 0%, #eef4f6 48%, #fff8f2 100%) !important;
+}
+
+body.mode-enabled .about-story-hero::before {
+    background:
+        radial-gradient(circle at top left, rgba(217, 71, 19, 0.1), transparent 30%),
+        linear-gradient(160deg, rgba(247, 250, 251, 0.92), rgba(255, 248, 242, 0.94)) !important;
+}
+
+body.mode-enabled .club-script,
+body.mode-enabled .club-heading h1,
+body.mode-enabled .club-heading h2,
+body.mode-enabled .section-heading h2,
+body.mode-enabled .special-projects-heading h2 {
+    color: #182736 !important;
+    text-shadow: none !important;
+}
+
+body.mode-enabled .section-heading p,
+body.mode-enabled .section-copy,
+body.mode-enabled .special-projects-heading p {
+    color: #536476 !important;
+    text-shadow: none !important;
+}
+
+body.mode-enabled .eyebrow,
+body.mode-enabled .special-projects-heading .eyebrow,
+body.mode-enabled .packages-plan-card .plan-tier,
+body.mode-enabled .packages-fit-panel .eyebrow,
+body.mode-enabled .packages-addons-copy .eyebrow,
+body.mode-enabled .packages-note-shell .eyebrow {
+    background: #fff3ea !important;
+    border-color: rgba(217, 71, 19, 0.22) !important;
+    color: #d94713 !important;
+    text-shadow: none !important;
+}
+
+body.mode-enabled .process-card,
+body.mode-enabled .packages-plan-card,
+body.mode-enabled .packages-fit-panel,
+body.mode-enabled .packages-note-shell,
+body.mode-enabled .packages-addons-grid article,
+body.mode-enabled .about-story-copy,
+body.mode-enabled .about-story-aside {
+    background:
+        linear-gradient(160deg, rgba(255, 255, 255, 0.98), rgba(249, 244, 238, 0.95)),
+        #ffffff !important;
+    border-color: rgba(24, 39, 56, 0.12) !important;
+    box-shadow: 0 18px 44px rgba(23, 37, 52, 0.12) !important;
+    color: #182736 !important;
+}
+
+body.mode-enabled .process-card h3,
+body.mode-enabled .packages-plan-card h3,
+body.mode-enabled .packages-fit-panel h2,
+body.mode-enabled .packages-note-shell h2,
+body.mode-enabled .packages-addons-grid strong,
+body.mode-enabled .about-story-copy h1,
+body.mode-enabled .about-story-aside strong {
+    color: #182736 !important;
+    text-shadow: none !important;
+}
+
+body.mode-enabled .process-card p,
+body.mode-enabled .packages-plan-card p,
+body.mode-enabled .packages-plan-card li,
+body.mode-enabled .packages-fit-panel p,
+body.mode-enabled .packages-note-shell p,
+body.mode-enabled .packages-addons-grid p,
+body.mode-enabled .about-story-copy p,
+body.mode-enabled .about-story-aside span,
+body.mode-enabled .about-story-points li,
+body.mode-enabled .about-story-mini-stats span {
+    color: #536476 !important;
+    text-shadow: none !important;
+}
+
+body.mode-enabled .process-step {
+    background: #fff3ea !important;
+    border-color: rgba(217, 71, 19, 0.2) !important;
+    color: #d94713 !important;
+}
+
+body.mode-enabled .preview-led {
+    background:
+        linear-gradient(180deg, rgba(10, 14, 26, 0.02), rgba(10, 14, 26, 0.58)),
+        url("../img/led-headset.jpg") center/cover no-repeat !important;
+}
+
+body.mode-enabled .preview-wedding {
+    background:
+        linear-gradient(180deg, rgba(10, 14, 26, 0.02), rgba(10, 14, 26, 0.58)),
+        url("../img/wedding-dance.jpg") center/cover no-repeat !important;
+}
+
+body.mode-enabled .preview-private {
+    background:
+        linear-gradient(180deg, rgba(10, 14, 26, 0.02), rgba(10, 14, 26, 0.58)),
+        url("../img/private-party.jpg") center/cover no-repeat !important;
+}
+
+body.mode-enabled .preview-dj {
+    background:
+        linear-gradient(180deg, rgba(10, 14, 26, 0.02), rgba(10, 14, 26, 0.58)),
+        url("../img/dj-booth.jpg") center/cover no-repeat !important;
+}
+
+body.mode-enabled .preview-college {
+    background:
+        linear-gradient(180deg, rgba(10, 14, 26, 0.02), rgba(10, 14, 26, 0.6)),
+        url("../img/college-event.jpg") center/cover no-repeat !important;
+}
+
+body.mode-enabled .preview-card {
+    border-color: rgba(24, 39, 56, 0.12) !important;
+    box-shadow: 0 18px 44px rgba(23, 37, 52, 0.14) !important;
+}
+
+body.mode-enabled .preview-card span {
+    color: #ffffff !important;
+    text-shadow: 0 10px 24px rgba(0, 0, 0, 0.48) !important;
+}
+
+/* Home 1 gallery preview image repair for light mode. */
+body.mode-enabled .gallery-preview-section .preview-card {
+    isolation: isolate !important;
+    position: relative !important;
+    overflow: hidden !important;
+    background: #ffffff !important;
+}
+
+body.mode-enabled .gallery-preview-section .preview-card::before {
+    content: "" !important;
+    position: absolute !important;
+    inset: 0 !important;
+    z-index: 0 !important;
+    background-position: center !important;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+    filter: brightness(1.04) contrast(1.04) saturate(1.06) !important;
+}
+
+body.mode-enabled .gallery-preview-section .preview-card::after {
+    content: "" !important;
+    position: absolute !important;
+    inset: 0 !important;
+    z-index: 0 !important;
+    background: linear-gradient(180deg, rgba(10, 14, 26, 0.02), rgba(10, 14, 26, 0.62)) !important;
+}
+
+body.mode-enabled .gallery-preview-section .preview-led::before {
+    background-image: url("../img/led-headset.jpg") !important;
+}
+
+body.mode-enabled .gallery-preview-section .preview-wedding::before {
+    background-image: url("../img/wedding-dance.jpg") !important;
+}
+
+body.mode-enabled .gallery-preview-section .preview-private::before {
+    background-image: url("../img/private-party.jpg") !important;
+}
+
+body.mode-enabled .gallery-preview-section .preview-dj::before {
+    background-image: url("../img/dj-booth.jpg") !important;
+}
+
+body.mode-enabled .gallery-preview-section .preview-college::before {
+    background-image: url("../img/college-event.jpg") !important;
+}
+
+body.mode-enabled .gallery-preview-section .preview-card span {
+    position: relative !important;
+    z-index: 1 !important;
+    color: #ffffff !important;
+    text-shadow: 0 10px 24px rgba(0, 0, 0, 0.56) !important;
+}
+
+/* Home 2 event-flow boxes light-mode repair. */
+body.mode-enabled .timeline-section {
+    background:
+        radial-gradient(circle at top left, rgba(217, 71, 19, 0.08), transparent 28%),
+        linear-gradient(160deg, #f7fafb 0%, #eef4f6 52%, #fff8f2 100%) !important;
+}
+
+body.mode-enabled .timeline-section::before {
+    background:
+        radial-gradient(circle at top center, rgba(255, 106, 26, 0.08), transparent 28%),
+        linear-gradient(rgba(247, 250, 251, 0.86), rgba(255, 248, 242, 0.9)) !important;
+}
+
+body.mode-enabled .timeline-premium::before {
+    background: linear-gradient(90deg, rgba(217, 71, 19, 0.16), rgba(24, 39, 56, 0.16), rgba(217, 71, 19, 0.16)) !important;
+}
+
+body.mode-enabled .timeline-step-premium {
+    background:
+        linear-gradient(160deg, rgba(255, 255, 255, 0.98), rgba(249, 244, 238, 0.95)),
+        #ffffff !important;
+    border: 1px solid rgba(24, 39, 56, 0.12) !important;
+    box-shadow: 0 18px 44px rgba(23, 37, 52, 0.12) !important;
+    color: #182736 !important;
+}
+
+body.mode-enabled .timeline-step-premium strong {
+    background: #fff3ea !important;
+    border-color: rgba(217, 71, 19, 0.2) !important;
+    color: #d94713 !important;
+    text-shadow: none !important;
+}
+
+body.mode-enabled .timeline-step-premium h3 {
+    color: #182736 !important;
+    text-shadow: none !important;
+}
+
+body.mode-enabled .timeline-step-premium p {
+    color: #536476 !important;
+    text-shadow: none !important;
+}
+
+body.mode-enabled .timeline-step-premium span {
+    background: rgba(24, 39, 56, 0.06) !important;
+    color: #324454 !important;
+    text-shadow: none !important;
+}
+
+/* Light-mode small heading/label visibility repair. */
+body.mode-enabled .packages-plan-card .plan-tier,
+body.mode-enabled .packages-comparison-section .plan-tier,
+body.mode-enabled .special-projects-heading .eyebrow,
+body.mode-enabled .special-projects-section .eyebrow {
+    color: #d94713 !important;
+    background: #fff3ea !important;
+    border: 1px solid rgba(217, 71, 19, 0.22) !important;
+    text-shadow: none !important;
+    opacity: 1 !important;
+}
+
+/* About story section background light-mode repair. */
+html.mode-enabled section.inner-page-hero.about-story-hero,
+body.mode-enabled section.inner-page-hero.about-story-hero,
+html.mode-enabled .about-page-main section.inner-page-hero.about-story-hero,
+body.mode-enabled .about-page-main section.inner-page-hero.about-story-hero {
+    background-color: #f7fafb !important;
+    background-image:
+        radial-gradient(circle at top left, rgba(217, 71, 19, 0.08), transparent 30%),
+        linear-gradient(160deg, #f7fafb 0%, #eef4f6 52%, #fff8f2 100%) !important;
+    color: #182736 !important;
+}
+
+html.mode-enabled section.inner-page-hero.about-story-hero::before,
+body.mode-enabled section.inner-page-hero.about-story-hero::before,
+html.mode-enabled .about-page-main section.inner-page-hero.about-story-hero::before,
+body.mode-enabled .about-page-main section.inner-page-hero.about-story-hero::before {
+    background:
+        radial-gradient(circle at top right, rgba(217, 71, 19, 0.08), transparent 34%),
+        linear-gradient(160deg, rgba(247, 250, 251, 0.9), rgba(255, 248, 242, 0.92)) !important;
+}
+
+/* Packages table final light-mode alignment and tier-label repair. */
+html.mode-enabled .packages-comparison-grid,
+body.mode-enabled .packages-comparison-grid {
+    align-items: stretch !important;
+}
+
+html.mode-enabled .packages-comparison-grid .packages-plan-card,
+body.mode-enabled .packages-comparison-grid .packages-plan-card {
+    height: 100% !important;
+    min-height: 520px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+    transform: none !important;
+}
+
+html.mode-enabled .packages-comparison-grid .featured-plan-card,
+body.mode-enabled .packages-comparison-grid .featured-plan-card {
+    transform: none !important;
+}
+
+html.mode-enabled .packages-comparison-grid .packages-plan-card > .plan-tier,
+body.mode-enabled .packages-comparison-grid .packages-plan-card > .plan-tier {
+    color: #d94713 !important;
+    -webkit-text-fill-color: #d94713 !important;
+    background: #fff3ea !important;
+    border: 1px solid rgba(217, 71, 19, 0.24) !important;
+    opacity: 1 !important;
+    filter: none !important;
+    text-shadow: none !important;
+    font-weight: 900 !important;
+}
+
+html.mode-enabled .packages-comparison-grid .packages-plan-card ul,
+body.mode-enabled .packages-comparison-grid .packages-plan-card ul {
+    flex: 1 1 auto !important;
+}
+
+html.mode-enabled .packages-comparison-grid .packages-plan-card .btn,
+body.mode-enabled .packages-comparison-grid .packages-plan-card .btn {
+    margin-top: auto !important;
+}
+
+/* Home 2 pricing preview light-mode label and equal-card repair. */
+html.mode-enabled .pricing-preview,
+body.mode-enabled .pricing-preview {
+    background:
+        radial-gradient(circle at top left, rgba(217, 71, 19, 0.08), transparent 28%),
+        linear-gradient(160deg, #f7fafb 0%, #eef4f6 52%, #fff8f2 100%) !important;
+}
+
+html.mode-enabled .pricing-preview .pricing-grid,
+body.mode-enabled .pricing-preview .pricing-grid {
+    align-items: stretch !important;
+}
+
+html.mode-enabled .pricing-preview .price-card,
+body.mode-enabled .pricing-preview .price-card {
+    min-height: 360px !important;
+    height: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    transform: none !important;
+    background:
+        linear-gradient(160deg, rgba(255, 255, 255, 0.98), rgba(249, 244, 238, 0.95)),
+        #ffffff !important;
+    border-color: rgba(24, 39, 56, 0.12) !important;
+    box-shadow: 0 18px 44px rgba(23, 37, 52, 0.12) !important;
+}
+
+html.mode-enabled .pricing-preview .featured-price,
+body.mode-enabled .pricing-preview .featured-price {
+    transform: none !important;
+}
+
+html.mode-enabled .pricing-preview .price-card .panel-label,
+body.mode-enabled .pricing-preview .price-card .panel-label {
+    color: #d94713 !important;
+    -webkit-text-fill-color: #d94713 !important;
+    background: #fff3ea !important;
+    border: 1px solid rgba(217, 71, 19, 0.28) !important;
+    opacity: 1 !important;
+    filter: none !important;
+    text-shadow: none !important;
+    font-weight: 900 !important;
+}
+
+html.mode-enabled .pricing-preview .price-card h3,
+body.mode-enabled .pricing-preview .price-card h3,
+html.mode-enabled .pricing-preview .price-card strong,
+body.mode-enabled .pricing-preview .price-card strong {
+    color: #182736 !important;
+    text-shadow: none !important;
+}
+
+html.mode-enabled .pricing-preview .price-card p,
+body.mode-enabled .pricing-preview .price-card p {
+    color: #536476 !important;
+    text-shadow: none !important;
+}
+
+html.mode-enabled .pricing-preview .price-card .btn,
+body.mode-enabled .pricing-preview .price-card .btn {
+    margin-top: 30px !important;
+}
+
+/* Home 1 gallery preview alignment repair. */
+.gallery-preview-section .gallery-preview-shell {
+    grid-template-columns: minmax(360px, 0.82fr) minmax(620px, 1.18fr);
+    align-items: start;
+    gap: 28px;
+}
+
+.gallery-preview-section .section-heading.left-align {
+    align-self: start;
+    padding-top: 12px;
+}
+
+.gallery-preview-section .section-heading.left-align .section-copy {
+    margin-bottom: 26px;
+}
+
+.gallery-preview-section .section-heading.left-align .btn {
+    width: min(100%, 520px);
+}
+
+.gallery-preview-details {
+    width: min(100%, 520px);
+    margin-top: 34px;
+    display: grid;
+    gap: 16px;
+}
+
+.gallery-preview-details article {
+    padding: 18px 20px;
+    border-radius: 22px;
+    border: 1px solid rgba(24, 39, 56, 0.1);
+    background:
+        linear-gradient(160deg, rgba(255, 255, 255, 0.86), rgba(249, 244, 238, 0.8)),
+        rgba(255, 255, 255, 0.86);
+    box-shadow: 0 16px 36px rgba(23, 37, 52, 0.1);
+}
+
+.gallery-preview-details strong,
+.gallery-preview-details span {
+    display: block;
+}
+
+.gallery-preview-details strong {
+    color: #182736;
+    font-size: 1.05rem;
+    line-height: 1.2;
+}
+
+.gallery-preview-details span {
+    margin-top: 8px;
+    color: #536476;
+    font-size: 0.98rem;
+    line-height: 1.58;
+}
+
+body:not(.mode-enabled) .gallery-preview-details article {
+    border-color: rgba(255, 255, 255, 0.1);
+    background:
+        linear-gradient(160deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02)),
+        rgba(22, 19, 18, 0.9);
+    box-shadow: 0 20px 48px rgba(0, 0, 0, 0.24);
+}
+
+body:not(.mode-enabled) .gallery-preview-details strong {
+    color: #fffaf6;
+}
+
+body:not(.mode-enabled) .gallery-preview-details span {
+    color: rgba(255, 244, 236, 0.78);
+}
+
+@media (max-width: 1024px) {
+    .gallery-preview-section .gallery-preview-shell {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery-preview-section .section-heading.left-align {
+        padding-top: 0;
+    }
+
+.gallery-preview-details {
+        width: 100%;
+    }
+}
+
+/* Login/register cards should not stretch into empty space. */
+body.auth-page .auth-shell {
+    align-items: start;
+}
+
+body.auth-page .auth-form-card {
+    min-height: 0 !important;
+    height: auto !important;
+    align-self: start !important;
+    padding-bottom: 34px;
+}
+
+body.auth-page .auth-socials {
+    margin-bottom: 0;
+}
+
+body.auth-page .auth-benefits {
+    min-height: 0 !important;
+    height: auto !important;
+    align-self: start !important;
+    padding: 30px;
+}
+
+body.auth-page .auth-benefit-points {
+    gap: 14px;
+}
+
+body.auth-page .auth-benefit-points article {
+    padding: 20px 22px;
+}
+
+body.auth-page .auth-benefits .hero-stats,
+body.auth-page .auth-benefits .hero-highlights {
+    gap: 14px;
+}
+
+body.auth-page .auth-benefits .hero-stat {
+    min-height: 0 !important;
+    height: auto !important;
+    padding: 16px 18px !important;
+}
+
+body.auth-page .auth-benefits .hero-stat strong {
+    min-height: 0 !important;
+    margin-bottom: 8px !important;
+}
+
+body.auth-page .auth-benefits .hero-stat span {
+    min-height: 0 !important;
+    line-height: 1.45 !important;
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+
+body.auth-page .auth-benefit-points {
+    margin-top: 20px !important;
+}
+
+body.auth-page .auth-benefits .hero-stats {
+    margin-top: 20px !important;
+}
+
+@media (max-width: 768px) {
+    body.auth-page .auth-form-card {
+        padding-bottom: 24px;
+    }
+
+    body.auth-page .auth-benefits {
+        padding: 24px;
+    }
+
+    body.auth-page .auth-benefits .hero-stat {
+        min-height: auto;
     }
 }
