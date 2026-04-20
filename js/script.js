@@ -343,6 +343,10 @@ const reverseWordsForRtl = (rtlEnabled) => {
 };
 
 const createSiteControls = () => {
+    if (currentPage === "login.html" || currentPage === "register.html") {
+        return null;
+    }
+
     const existingControls = document.querySelector(".site-tools");
     if (existingControls) {
         return existingControls;
