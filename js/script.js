@@ -1,6 +1,27 @@
 const funFactNumbers = document.querySelectorAll(".fun-fact-number");
 const currentPage = decodeURIComponent(window.location.pathname.split("/").pop() || "index.html").trim().toLowerCase();
 
+const ensureHomeDropdownButton = () => {
+    document.querySelectorAll(".nav-item.has-dropdown > .nav-link").forEach((link) => {
+        if (link.querySelector(".dropdown-button")) {
+            return;
+        }
+
+        const label = link.textContent.trim() || "Home";
+        link.textContent = "";
+
+        const text = document.createElement("span");
+        text.textContent = label;
+        link.appendChild(text);
+
+        const button = document.createElement("span");
+        button.className = "dropdown-button";
+        button.setAttribute("aria-hidden", "true");
+        button.innerHTML = '<i class="fa-solid fa-chevron-down"></i>';
+        link.appendChild(button);
+    });
+};
+
 if (funFactNumbers.length) {
     const animateValue = (element) => {
         const target = Number(element.dataset.target || 0);
@@ -68,6 +89,7 @@ const setActiveMenu = () => {
     }
 };
 
+ensureHomeDropdownButton();
 setActiveMenu();
 
 const initMobileNav = () => {
@@ -332,8 +354,8 @@ const createSiteControls = () => {
     const controls = document.createElement("div");
     controls.className = "site-tools";
     controls.innerHTML = `
-        <button type="button" class="tool-chip tool-chip-icon-only" data-tool="mode" aria-pressed="${modeEnabled}" aria-label="${modeEnabled ? "Switch to dark mode" : "Switch to light mode"}" title="${modeEnabled ? "Dark mode" : "Light mode"}">
-            <span class="tool-chip-icon"><i class="fa-regular fa-moon"></i></span>
+        <button type="button" class="tool-chip tool-chip-icon-only" data-tool="mode" aria-pressed="${modeEnabled}" aria-label="${modeEnabled ? "Switch to dark mode" : "Switch to light mode"}" title="${modeEnabled ? "Light mode" : "Dark mode"}">
+            <span class="tool-chip-icon"><i class="fa-regular ${modeEnabled ? "fa-sun" : "fa-moon"}"></i></span>
         </button>
         <button type="button" class="tool-chip" data-tool="rtl" aria-pressed="${rtlEnabled}">
             <span class="tool-chip-label">${rtlEnabled ? "LTR" : "RTL"}</span>
@@ -360,7 +382,12 @@ const createSiteControls = () => {
         }
 
         const type = chip.dataset.tool;
-        const storageKey = type === "mode" ? "silentBeatsMode" : "silentBeatsRtl";
+        const storageKey = type === "mode" ? "silentBeatsMode" : type === "rtl" ? "silentBeatsRtl" : "";
+
+        if (!storageKey) {
+            return;
+        }
+
         const isEnabled = storage.get(storageKey) === "enabled";
         storage.set(storageKey, isEnabled ? "disabled" : "enabled");
 
@@ -388,10 +415,11 @@ const syncControlStates = () => {
 
             chip.setAttribute("aria-label", enabled ? "Switch to dark mode" : "Switch to light mode");
             chip.setAttribute("title", enabled ? "Light mode" : "Dark mode");
+            return;
         }
 
         const label = chip.querySelector(".tool-chip-label");
-        if (label && !isMode) {
+        if (label) {
             label.textContent = enabled ? "LTR" : "RTL";
         }
     });
