@@ -300,6 +300,24 @@ const applySitePreferences = () => {
     body.setAttribute("dir", direction);
     root.style.direction = direction;
     body.style.direction = direction;
+    reverseWordsForRtl(rtlEnabled);
+};
+
+const reverseWordsForRtl = (rtlEnabled) => {
+    const textElements = document.querySelectorAll(".main-nav a, .site-login-link, [data-rtl-reverse]");
+
+    textElements.forEach((element) => {
+        const textTarget = element.querySelector(":scope > span:first-child") || element;
+
+        if (!textTarget.dataset.rtlOriginalText) {
+            textTarget.dataset.rtlOriginalText = textTarget.textContent.trim();
+        }
+
+        const originalText = textTarget.dataset.rtlOriginalText;
+        textTarget.textContent = rtlEnabled
+            ? originalText.split(/\s+/).reverse().join(" ")
+            : originalText;
+    });
 };
 
 const createSiteControls = () => {
@@ -320,17 +338,14 @@ const createSiteControls = () => {
         <button type="button" class="tool-chip" data-tool="rtl" aria-pressed="${rtlEnabled}">
             <span class="tool-chip-label">${rtlEnabled ? "LTR" : "RTL"}</span>
         </button>
+        <a href="login.html" class="nav-btn site-login-link" data-rtl-reverse>Login</a>
     `;
 
     const authTopbar = document.querySelector(".auth-topbar-inner");
     const headerWrap = document.querySelector(".header-wrap");
-    const mainNav = document.querySelector(".main-nav");
-    const navButton = mainNav?.querySelector(".nav-btn");
 
     if (authTopbar) {
         authTopbar.appendChild(controls);
-    } else if (mainNav && navButton) {
-        navButton.insertAdjacentElement("beforebegin", controls);
     } else if (headerWrap) {
         headerWrap.appendChild(controls);
     } else {
@@ -351,6 +366,7 @@ const createSiteControls = () => {
 
         applySitePreferences();
         syncControlStates();
+        reverseWordsForRtl(storage.get("silentBeatsRtl") === "enabled");
     });
 
     return controls;
@@ -379,6 +395,8 @@ const syncControlStates = () => {
             label.textContent = enabled ? "LTR" : "RTL";
         }
     });
+
+    reverseWordsForRtl(storage.get("silentBeatsRtl") === "enabled");
 };
 
 const passwordToggles = document.querySelectorAll("[data-password-toggle]");
@@ -402,11 +420,11 @@ passwordToggles.forEach((toggleButton) => {
     });
 });
 
+createSiteControls();
 applySitePreferences();
 initMobileNav();
 initScrollTopButton();
 initRevealAnimations();
-createSiteControls();
 syncControlStates();
 
 const parallaxSections = document.querySelectorAll("[data-parallax-section]");
