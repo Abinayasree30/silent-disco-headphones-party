@@ -1,4 +1,4 @@
-﻿:root {
+:root {
     --bg: #0d0d0d;
     --bg-deep: #141414;
     --panel: rgba(24, 20, 18, 0.88);
@@ -299,10 +299,31 @@ img {
     margin-bottom: -12px;
 }
 
-.nav-link::after {
-    content: "▼";
-    margin-left: 6px;
-    font-size: 0.72rem;
+.nav-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.dropdown-button {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 106, 26, 0.32);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #ff8a3d;
+    font-size: 0.62rem;
+    line-height: 1;
+    transition: transform 0.25s ease, background 0.25s ease, border-color 0.25s ease;
+}
+
+.has-dropdown:hover .dropdown-button,
+.has-dropdown:focus-within .dropdown-button {
+    transform: rotate(180deg);
+    background: rgba(255, 106, 26, 0.1);
+    border-color: rgba(255, 106, 26, 0.48);
 }
 
 .dropdown-menu {
@@ -372,6 +393,11 @@ img {
     background: rgba(255, 106, 26, 0.08);
 }
 
+.site-tools .nav-btn {
+    margin-left: 0;
+    margin-right: 0;
+}
+
 @media (max-width: 1320px) {
     .header-wrap {
         gap: 14px;
@@ -433,6 +459,11 @@ img {
         flex-wrap: wrap;
         row-gap: 10px;
     }
+
+    [dir="rtl"] .main-nav {
+        justify-content: flex-end;
+        margin-right: 0;
+    }
 }
 
 .auth-topbar {
@@ -490,12 +521,19 @@ img {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 12px 22px;
-    border-radius: 999px;
-    background: rgba(255, 106, 26, 0.14);
-    border: 1px solid rgba(255, 106, 26, 0.24);
-    color: #f5f7ff;
+    padding: 0;
+    border-radius: 0;
+    background: transparent;
+    border: 0;
+    color: #ffffff;
     margin-bottom: 22px;
+    font-size: clamp(1.05rem, 2vw, 1.55rem);
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-shadow:
+        0 0 18px rgba(255, 106, 26, 0.75),
+        0 8px 28px rgba(0, 0, 0, 0.48);
 }
 
 .image-hero-content h1 {
@@ -1269,6 +1307,12 @@ body.mode-enabled .tool-chip[aria-pressed="true"] {
     font-size: 0.88rem;
     letter-spacing: 0.08em;
     text-transform: uppercase;
+}
+
+body.mode-enabled .section-block .card .card-icon {
+    background: rgba(217, 71, 19, 0.12);
+    border-color: rgba(217, 71, 19, 0.3);
+    color: #8f2d0f;
 }
 
 .hero-panel {
@@ -2915,7 +2959,6 @@ body.mode-enabled .concept-point {
 }
 
 [dir="rtl"] .header-wrap,
-[dir="rtl"] .main-nav,
 [dir="rtl"] .hero-actions,
 [dir="rtl"] .image-hero-actions,
 [dir="rtl"] .footer-socials,
@@ -2924,18 +2967,44 @@ body.mode-enabled .concept-point {
 }
 
 [dir="rtl"] .main-nav {
+    flex-direction: row;
+    justify-content: flex-start;
     margin-left: 0;
     margin-right: clamp(48px, 6vw, 112px);
 }
 
 [dir="rtl"] .site-tools {
+    flex-direction: row;
     margin-left: 0;
-    margin-right: auto;
+    margin-right: 0;
 }
 
 [dir="rtl"] .nav-btn {
     margin-left: 0;
-    margin-right: auto;
+    margin-right: 12px;
+}
+
+[dir="rtl"] .nav-link {
+    flex-direction: row-reverse;
+}
+
+@media (max-width: 1180px) {
+    [dir="rtl"] .main-nav {
+        justify-content: flex-start;
+        margin-right: 0;
+    }
+}
+
+@media (max-width: 1320px) {
+    [dir="rtl"] .main-nav {
+        margin-right: 28px;
+    }
+}
+
+@media (max-width: 1180px) {
+    [dir="rtl"] .main-nav {
+        margin-right: 0;
+    }
 }
 
 [dir="rtl"] .dropdown-menu {
@@ -2945,6 +3014,50 @@ body.mode-enabled .concept-point {
 
 [dir="rtl"] .footer-grid > div {
     align-items: flex-end;
+}
+
+[dir="rtl"] .footer-brand {
+    text-align: right;
+}
+
+[dir="rtl"] .footer-logo-link {
+    align-self: flex-end;
+}
+
+[dir="rtl"] .footer-brand p {
+    margin-left: 0;
+    margin-right: 0;
+    text-align: right;
+}
+
+[dir="rtl"] .footer-socials {
+    justify-content: flex-end;
+}
+
+[dir="rtl"] .footer-links a,
+[dir="rtl"] .footer-contact p {
+    flex-direction: row-reverse;
+    text-align: right;
+}
+
+[dir="rtl"] .footer-links a i,
+[dir="rtl"] .footer-contact i {
+    transform: scaleX(-1);
+}
+
+[dir="rtl"] .footer-cta {
+    align-items: flex-end;
+    text-align: right;
+}
+
+[dir="rtl"] .footer-cta p {
+    margin-left: 0;
+    margin-right: 0;
+    text-align: right;
+}
+
+[dir="rtl"] .footer-cta-btn {
+    align-self: flex-end;
 }
 
 .site-footer {
@@ -3180,6 +3293,27 @@ body.mode-enabled .concept-point {
             linear-gradient(160deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02)),
             rgba(11, 15, 31, 0.98);
         box-shadow: 0 18px 34px rgba(0, 0, 0, 0.28);
+    }
+
+    [dir="rtl"] .menu-toggle {
+        margin-left: 0;
+        margin-right: auto;
+    }
+
+    [dir="rtl"] .main-nav {
+        align-items: flex-end;
+        flex-direction: column;
+        margin-right: 0;
+        text-align: right;
+    }
+
+    [dir="rtl"] .site-tools {
+        justify-content: flex-end;
+        margin-right: 0;
+    }
+
+    [dir="rtl"] .nav-btn {
+        margin-right: 0;
     }
 
     .main-nav.is-open {
@@ -5893,6 +6027,35 @@ body.mode-enabled .blog-insight-points span {
     background: rgba(215, 171, 112, 0.18);
 }
 
+body.mode-enabled .site-footer h2,
+body.mode-enabled .site-footer h3,
+body.mode-enabled .footer-grid strong {
+    color: #ffffff;
+}
+
+body.mode-enabled .about-story-mini-stats span,
+body.mode-enabled .blog-tags-cloud a,
+body.mode-enabled .booking-pick {
+    background: rgba(248, 234, 220, 0.92);
+    border-color: rgba(24, 39, 56, 0.14);
+    box-shadow: 0 10px 24px rgba(23, 37, 52, 0.08);
+}
+
+body.mode-enabled .about-story-mini-stats span,
+body.mode-enabled .blog-tags-cloud a,
+body.mode-enabled .booking-pick strong,
+body.mode-enabled .booking-summary-row strong,
+body.mode-enabled .booking-benefit-card strong {
+    color: #182736;
+}
+
+body.mode-enabled .booking-pick span,
+body.mode-enabled .booking-benefit-card span,
+body.mode-enabled .booking-summary-row span,
+body.mode-enabled .booking-note {
+    color: #536476;
+}
+
 body :where(p, li, a, button, input, textarea, select) {
     font-size: 1rem;
     line-height: 1.72;
@@ -6039,10 +6202,15 @@ body.mode-enabled .preview-card span {
     color: #f8fbff !important;
 }
 
-body.mode-enabled .image-hero-tag,
 body.mode-enabled .gallery-only-tag {
     background: rgba(232, 245, 250, 0.18);
     border-color: rgba(170, 226, 241, 0.34);
+}
+
+body.mode-enabled .image-hero-tag {
+    background: transparent;
+    border-color: transparent;
+    color: #ffffff !important;
 }
 
 body.mode-enabled .eyebrow {
