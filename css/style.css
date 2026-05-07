@@ -695,7 +695,9 @@ img {
 }
 
 .rhythm-card-btn {
-    margin-top: 24px;
+    display: flex;
+    width: fit-content;
+    margin: 24px auto 0;
     min-width: 180px;
 }
 
@@ -9458,6 +9460,19 @@ body.auth-page .auth-form-card {
     padding-bottom: 34px;
 }
 
+body.auth-page .auth-form-card .compact-heading,
+body.auth-page .auth-form-card .helper-links {
+    text-align: center;
+}
+
+body.auth-page .auth-form-card .compact-heading .eyebrow {
+    justify-self: center;
+}
+
+body.auth-page .auth-form-card .compact-heading .section-copy {
+    margin-inline: auto;
+}
+
 body.auth-page .auth-socials {
     margin-bottom: 0;
 }
@@ -10764,5 +10779,54 @@ body {
         max-width: 100%;
         margin-inline: auto;
         justify-self: center;
+    }
+}
+
+/* Final responsive fixes: readable tablet nav and mobile-first blog filters. */
+@media (max-width: 1024px) {
+    .site-header .main-nav,
+    body.mode-enabled .site-header .main-nav {
+        border-color: rgba(255, 106, 26, 0.28) !important;
+        background:
+            linear-gradient(160deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02)),
+            rgba(14, 18, 34, 0.98) !important;
+        box-shadow: 0 18px 38px rgba(0, 0, 0, 0.36) !important;
+    }
+
+    .site-header .main-nav a,
+    .site-header .main-nav .nav-link,
+    body.mode-enabled .site-header .main-nav a,
+    body.mode-enabled .site-header .main-nav .nav-link {
+        color: #fff8f2 !important;
+    }
+
+    .site-header .main-nav a:hover,
+    .site-header .main-nav .nav-link:hover,
+    body.mode-enabled .site-header .main-nav a:hover,
+    body.mode-enabled .site-header .main-nav .nav-link:hover {
+        color: #ff9a52 !important;
+    }
+
+    .site-header .main-nav .dropdown-menu,
+    body.mode-enabled .site-header .main-nav .dropdown-menu {
+        background: rgba(255, 255, 255, 0.04) !important;
+        border-color: rgba(255, 255, 255, 0.08) !important;
+        box-shadow: none !important;
+    }
+
+    .site-header .main-nav .dropdown-menu a,
+    body.mode-enabled .site-header .main-nav .dropdown-menu a {
+        color: #fff8f2 !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .blog-page .blog-showcase-stack {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .blog-page .blog-widget-grid {
+        order: -1;
     }
 }
